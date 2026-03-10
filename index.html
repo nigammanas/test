@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LUMÉ Shop — GA4 Demo Store</title>
+
+  <!-- ================================================
+    GOOGLE TAG MANAGER — Replace GTM-MVLN8S2F with your GTM Container ID
+    Get yours free at: https://tagmanager.google.com
+  ================================================ -->
+  <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MVLN8S2F');
+  </script>
+  <!-- End Google Tag Manager -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --cream: #F9F6F1;
+      --charcoal: #1A1A1A;
+      --warm-gray: #8C8279;
+      --accent: #C9A96E;
+      --accent-dark: #A8844A;
+      --card-bg: #FFFFFF;
+      --border: #E8E2D9;
+      --tag-bg: #EDE8E0;
+      --event-bg: #0F1117;
+      --event-green: #4ADE80;
+      --event-blue: #60A5FA;
+      --event-yellow: #FCD34D;
+      --shadow: 0 4px 24px rgba(0,0,0,0.07);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--cream);
+      font-family: 'DM Sans', sans-serif;
+      color: var(--charcoal);
+      min-height: 100vh;
+    }
+
+    /* ─── HEADER ─── */
+    header {
+      background: var(--charcoal);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      height: 72px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 300;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+    }
+    .logo span { color: var(--accent); }
+
+    nav a {
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      font-size: 13px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-left: 32px;
+      transition: color 0.2s;
+    }
+    nav a:hover { color: white; }
+
+    .cart-btn {
+      background: none;
+      border: 1px solid rgba(255,255,255,0.3);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+    .cart-btn:hover { background: rgba(255,255,255,0.08); border-color: var(--accent); }
+    .cart-count {
+      background: var(--accent);
+      color: var(--charcoal);
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      font-size: 11px;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      background: linear-gradient(135deg, #1A1A1A 0%, #2D2520 50%, #1A1A1A 100%);
+      color: white;
+      text-align: center;
+      padding: 80px 48px 72px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 60% 40%, rgba(201,169,110,0.12) 0%, transparent 60%);
+    }
+    .hero-tag {
+      display: inline-block;
+      border: 1px solid rgba(201,169,110,0.5);
+      color: var(--accent);
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 2px;
+      margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(42px, 6vw, 72px);
+      font-weight: 300;
+      line-height: 1.1;
+      margin-bottom: 16px;
+      position: relative;
+    }
+    .hero h1 em { font-style: italic; color: var(--accent); }
+    .hero p {
+      color: rgba(255,255,255,0.55);
+      font-size: 15px;
+      font-weight: 300;
+      letter-spacing: 0.5px;
+      position: relative;
+    }
+
+    /* ─── GTM NOTICE BANNER ─── */
+    .gtm-notice {
+      background: linear-gradient(90deg, #1e3a2f, #0f2d20);
+      border-bottom: 1px solid #2d5a3d;
+      color: #86efac;
+      padding: 10px 48px;
+      font-size: 12.5px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .gtm-notice strong { color: #4ade80; }
+    .gtm-notice a { color: #86efac; }
+
+    /* ─── PRODUCTS SECTION ─── */
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      padding: 56px 48px 28px;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px;
+      font-weight: 400;
+    }
+    .section-sub {
+      color: var(--warm-gray);
+      font-size: 13px;
+      letter-spacing: 0.5px;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 24px;
+      padding: 0 48px 64px;
+    }
+
+    .product-card {
+      background: var(--card-bg);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: transform 0.25s, box-shadow 0.25s;
+      cursor: pointer;
+    }
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+    }
+
+    .product-img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 64px;
+      background: var(--tag-bg);
+      position: relative;
+      overflow: hidden;
+    }
+    .product-img-inner {
+      width: 100%;
+      padding-top: 75%;
+      position: relative;
+      background: linear-gradient(135deg, #EDE8E0, #F5F0E8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .product-emoji {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 72px;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.08));
+    }
+    .product-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: var(--charcoal);
+      color: var(--accent);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 2px;
+    }
+
+    .product-info { padding: 20px; }
+    .product-category {
+      font-size: 11px;
+      color: var(--warm-gray);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .product-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 400;
+      margin-bottom: 4px;
+      line-height: 1.3;
+    }
+    .product-desc {
+      font-size: 13px;
+      color: var(--warm-gray);
+      line-height: 1.5;
+      margin-bottom: 16px;
+    }
+    .product-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .product-price {
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--charcoal);
+    }
+    .product-price span {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--warm-gray);
+      margin-left: 4px;
+    }
+
+    .add-cart-btn {
+      background: var(--charcoal);
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 4px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+    }
+    .add-cart-btn:hover { background: var(--accent-dark); }
+    .add-cart-btn:active { transform: scale(0.96); }
+    .add-cart-btn.added {
+      background: #16a34a;
+    }
+
+    /* ─── CART SIDEBAR ─── */
+    .cart-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+      z-index: 200;
+    }
+    .cart-overlay.open { display: block; }
+
+    .cart-sidebar {
+      position: fixed;
+      top: 0; right: -480px;
+      width: 440px;
+      max-width: 100vw;
+      height: 100vh;
+      background: white;
+      z-index: 201;
+      display: flex;
+      flex-direction: column;
+      transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: -8px 0 40px rgba(0,0,0,0.15);
+    }
+    .cart-sidebar.open { right: 0; }
+
+    .cart-header {
+      padding: 28px 28px 20px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .cart-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      font-weight: 400;
+    }
+    .close-cart {
+      background: none;
+      border: none;
+      font-size: 22px;
+      cursor: pointer;
+      color: var(--warm-gray);
+      padding: 4px;
+      line-height: 1;
+    }
+
+    .cart-items {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px 28px;
+    }
+    .cart-empty {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--warm-gray);
+    }
+    .cart-empty-icon { font-size: 48px; margin-bottom: 12px; }
+    .cart-empty p { font-size: 14px; }
+
+    .cart-item {
+      display: flex;
+      gap: 16px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+      animation: slideIn 0.3s ease;
+    }
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateX(20px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    .cart-item-emoji {
+      width: 72px;
+      height: 72px;
+      background: var(--tag-bg);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 36px;
+      flex-shrink: 0;
+    }
+    .cart-item-info { flex: 1; }
+    .cart-item-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 17px;
+      margin-bottom: 4px;
+    }
+    .cart-item-price { font-size: 14px; color: var(--warm-gray); }
+    .cart-item-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 8px;
+    }
+    .qty-btn {
+      width: 28px; height: 28px;
+      border: 1px solid var(--border);
+      background: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.15s;
+    }
+    .qty-btn:hover { background: var(--tag-bg); }
+    .qty-display {
+      font-size: 14px;
+      font-weight: 500;
+      min-width: 20px;
+      text-align: center;
+    }
+    .remove-btn {
+      margin-left: auto;
+      background: none;
+      border: none;
+      color: #ef4444;
+      cursor: pointer;
+      font-size: 12px;
+      letter-spacing: 0.5px;
+      padding: 4px 8px;
+    }
+
+    .cart-footer {
+      padding: 20px 28px 28px;
+      border-top: 1px solid var(--border);
+    }
+    .cart-subtotal {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+    }
+    .cart-subtotal label { font-size: 13px; color: var(--warm-gray); }
+    .cart-subtotal .total-val { font-size: 22px; font-weight: 500; }
+    .cart-subtotal .tax-note { font-size: 11px; color: var(--warm-gray); }
+
+    .checkout-btn {
+      width: 100%;
+      background: var(--charcoal);
+      color: white;
+      border: none;
+      padding: 16px;
+      border-radius: 6px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      cursor: pointer;
+      margin-top: 16px;
+      transition: background 0.2s;
+    }
+    .checkout-btn:hover { background: var(--accent-dark); }
+
+    /* ─── PURCHASE SUCCESS TOAST ─── */
+    .toast {
+      position: fixed;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: #16a34a;
+      color: white;
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      z-index: 999;
+      transition: transform 0.3s;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    }
+    .toast.show { transform: translateX(-50%) translateY(0); }
+
+    /* ─── EVENT LOG PANEL ─── */
+    .event-log-wrapper {
+      background: var(--event-bg);
+      padding: 0 48px 0;
+      position: sticky;
+      bottom: 0;
+      z-index: 50;
+      border-top: 3px solid #22c55e;
+    }
+    .event-log-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 0;
+      cursor: pointer;
+      user-select: none;
+    }
+    .event-log-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: white;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+    .live-dot {
+      width: 8px; height: 8px;
+      background: var(--event-green);
+      border-radius: 50%;
+      animation: pulse 1.5s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+    .log-controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .clear-log-btn {
+      background: none;
+      border: 1px solid rgba(255,255,255,0.2);
+      color: rgba(255,255,255,0.6);
+      font-size: 11px;
+      padding: 4px 12px;
+      border-radius: 3px;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      letter-spacing: 0.5px;
+    }
+    .toggle-log-btn {
+      background: none;
+      border: none;
+      color: rgba(255,255,255,0.5);
+      font-size: 18px;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    #event-log-body {
+      max-height: 240px;
+      overflow-y: auto;
+      padding-bottom: 16px;
+      font-family: 'Courier New', monospace;
+      font-size: 12px;
+    }
+    #event-log-body.collapsed { display: none; }
+
+    .log-entry {
+      display: flex;
+      gap: 10px;
+      padding: 5px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      animation: logIn 0.2s ease;
+    }
+    @keyframes logIn {
+      from { opacity: 0; transform: translateY(-4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .log-time { color: #6b7280; min-width: 60px; }
+    .log-event { color: var(--event-green); min-width: 200px; font-weight: bold; }
+    .log-data { color: #94a3b8; word-break: break-all; }
+    .log-entry.highlight .log-event { color: var(--event-yellow); }
+    .log-entry.purchase .log-event { color: #f472b6; }
+
+    .event-count-badge {
+      background: #22c55e;
+      color: #0f1117;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 10px;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--charcoal);
+      color: rgba(255,255,255,0.35);
+      text-align: center;
+      padding: 28px;
+      font-size: 12.5px;
+      letter-spacing: 0.5px;
+      line-height: 1.8;
+    }
+    footer strong { color: rgba(255,255,255,0.7); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 768px) {
+      header { padding: 0 20px; }
+      nav { display: none; }
+      .section-header, .products-grid { padding-left: 20px; padding-right: 20px; }
+      .event-log-wrapper { padding: 0 20px; }
+      .hero { padding: 48px 20px; }
+      .gtm-notice { padding: 10px 20px; font-size: 11px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ============================================================
+  GTM NOSCRIPT — Required for GTM to work without JavaScript
+============================================================ -->
+<noscript>
+  <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MVLN8S2F"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+
+<!-- HEADER -->
+<header>
+  <div class="logo">LUM<span>É</span></div>
+  <nav>
+    <a href="#" onclick="trackNavClick('New In')">New In</a>
+    <a href="#" onclick="trackNavClick('Collections')">Collections</a>
+    <a href="#" onclick="trackNavClick('About')">About</a>
+  </nav>
+  <button class="cart-btn" onclick="openCart()">
+    🛒 Cart <span class="cart-count" id="cart-count">0</span>
+  </button>
+</header>
+
+<!-- GTM SETUP NOTICE -->
+<div class="gtm-notice">
+  🟢 &nbsp;<strong>GTM + GA4 Demo Active</strong> — All dataLayer events are firing below ↓ &nbsp;|&nbsp;
+  Replace <strong>GTM-MVLN8S2F</strong> in the HTML with your GTM Container ID to connect to your GTM account &nbsp;|&nbsp;
+  <a href="https://tagmanager.google.com" target="_blank">Get free GTM ID →</a>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag">New Collection 2025</div>
+  <h1>Curated for the<br><em>discerning few</em></h1>
+  <p>Premium essentials — beautifully made, thoughtfully designed</p>
+</div>
+
+<!-- PRODUCTS -->
+<div class="section-header">
+  <h2 class="section-title">Featured Products</h2>
+  <span class="section-sub">6 items</span>
+</div>
+
+<div class="products-grid" id="products-grid">
+  <!-- Products injected by JS below -->
+</div>
+
+<!-- CART SIDEBAR -->
+<div class="cart-overlay" id="cart-overlay" onclick="closeCart()"></div>
+<div class="cart-sidebar" id="cart-sidebar">
+  <div class="cart-header">
+    <div class="cart-title">Your Cart</div>
+    <button class="close-cart" onclick="closeCart()">✕</button>
+  </div>
+  <div class="cart-items" id="cart-items">
+    <div class="cart-empty">
+      <div class="cart-empty-icon">🛍️</div>
+      <p>Your cart is empty</p>
+    </div>
+  </div>
+  <div class="cart-footer">
+    <div class="cart-subtotal">
+      <div>
+        <label>Subtotal</label>
+        <div class="tax-note">Taxes calculated at checkout</div>
+      </div>
+      <div class="total-val" id="cart-total">$0.00</div>
+    </div>
+    <button class="checkout-btn" onclick="beginCheckout()">Proceed to Checkout →</button>
+  </div>
+</div>
+
+<!-- SUCCESS TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- ============================================================
+  EVENT LOG PANEL — Shows all GA4 dataLayer events in real time
+============================================================ -->
+<div class="event-log-wrapper">
+  <div class="event-log-header" onclick="toggleLog()">
+    <div class="event-log-title">
+      <div class="live-dot"></div>
+      📊 &nbsp;DataLayer / GA4 Event Log
+      <span class="event-count-badge" id="event-count">0 events</span>
+    </div>
+    <div class="log-controls">
+      <button class="clear-log-btn" onclick="event.stopPropagation(); clearLog()">Clear</button>
+      <button class="toggle-log-btn" id="toggle-icon">▲</button>
+    </div>
+  </div>
+  <div id="event-log-body">
+    <div style="color:#4b5563; padding:8px 0; font-family:'DM Sans',sans-serif; font-size:12px;">
+      👆 Interact with the store above — GA4 events will appear here in real time...
+    </div>
+  </div>
+</div>
+
+<footer>
+  <strong>LUMÉ Demo Store</strong> — Built for GA4 / GTM Testing<br>
+  All events use <strong>window.dataLayer.push()</strong> — GA4 Ecommerce Schema<br>
+  Host this file FREE on <a href="https://pages.github.com" target="_blank" style="color:rgba(255,255,255,0.5)">GitHub Pages</a> or
+  <a href="https://netlify.com/drop" target="_blank" style="color:rgba(255,255,255,0.5)">Netlify Drop</a>
+</footer>
+
+<!-- ============================================================
+  MAIN SCRIPT — Products, Cart, GA4 DataLayer Events
+============================================================ -->
+<script>
+  // ── Initialize dataLayer ──────────────────────────────────────
+  window.dataLayer = window.dataLayer || [];
+
+  // ── Product Catalog ───────────────────────────────────────────
+  const PRODUCTS = [
+    {
+      item_id: "SKU-001",
+      item_name: "Obsidian Ceramic Mug",
+      item_brand: "LUMÉ",
+      item_category: "Homeware",
+      price: 48.00,
+      currency: "USD",
+      emoji: "🫖",
+      desc: "Hand-thrown matte black ceramic. 12oz capacity.",
+      badge: "Bestseller"
+    },
+    {
+      item_id: "SKU-002",
+      item_name: "Linen Table Runner",
+      item_brand: "LUMÉ",
+      item_category: "Homeware",
+      price: 72.00,
+      currency: "USD",
+      emoji: "🏮",
+      desc: "Stone-washed natural linen. 180cm length.",
+      badge: null
+    },
+    {
+      item_id: "SKU-003",
+      item_name: "Amber Glass Vase",
+      item_brand: "LUMÉ",
+      item_category: "Decor",
+      price: 94.00,
+      currency: "USD",
+      emoji: "🏺",
+      desc: "Mouth-blown borosilicate glass. 28cm tall.",
+      badge: "New"
+    },
+    {
+      item_id: "SKU-004",
+      item_name: "Cedar Candle Set",
+      item_brand: "LUMÉ",
+      item_category: "Fragrance",
+      price: 56.00,
+      currency: "USD",
+      emoji: "🕯️",
+      desc: "Soy wax with cedarwood & vetiver. Set of 2.",
+      badge: null
+    },
+    {
+      item_id: "SKU-005",
+      item_name: "Wool Throw Blanket",
+      item_brand: "LUMÉ",
+      item_category: "Textiles",
+      price: 138.00,
+      currency: "USD",
+      emoji: "🧶",
+      desc: "Merino wool blend. 140 × 180cm. Sand colourway.",
+      badge: "Limited"
+    },
+    {
+      item_id: "SKU-006",
+      item_name: "Brass Bookends",
+      item_brand: "LUMÉ",
+      item_category: "Decor",
+      price: 82.00,
+      currency: "USD",
+      emoji: "📚",
+      desc: "Solid brushed brass. Pair. Geometric form.",
+      badge: null
+    }
+  ];
+
+  // ── Cart State ────────────────────────────────────────────────
+  let cart = [];
+  let eventCount = 0;
+  let logExpanded = true;
+
+  // ── Render Products ───────────────────────────────────────────
+  function renderProducts() {
+    const grid = document.getElementById('products-grid');
+    grid.innerHTML = PRODUCTS.map((p, i) => `
+      <div class="product-card" onclick="trackViewItem('${p.item_id}')">
+        <div class="product-img">
+          <div class="product-img-inner">
+            <div class="product-emoji">${p.emoji}</div>
+            ${p.badge ? `<div class="product-badge">${p.badge}</div>` : ''}
+          </div>
+        </div>
+        <div class="product-info">
+          <div class="product-category">${p.item_category}</div>
+          <div class="product-name">${p.item_name}</div>
+          <div class="product-desc">${p.desc}</div>
+          <div class="product-footer">
+            <div class="product-price">$${p.price.toFixed(2)}<span>USD</span></div>
+            <button class="add-cart-btn" id="btn-${p.item_id}"
+              onclick="event.stopPropagation(); addToCart('${p.item_id}')">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+    `).join('');
+
+    // Fire view_item_list on page load
+    pushDataLayer('view_item_list', {
+      item_list_id: "featured_products",
+      item_list_name: "Featured Products",
+      items: PRODUCTS.map((p, i) => ({
+        item_id: p.item_id,
+        item_name: p.item_name,
+        item_brand: p.item_brand,
+        item_category: p.item_category,
+        price: p.price,
+        currency: p.currency,
+        index: i + 1
+      }))
+    }, 'default');
+  }
+
+  // ── GA4 DataLayer Push ────────────────────────────────────────
+  function pushDataLayer(eventName, ecommerceData, logType = 'default') {
+    // Clear previous ecommerce object (GA4 best practice)
+    window.dataLayer.push({ ecommerce: null });
+
+    const payload = {
+      event: eventName,
+      ecommerce: ecommerceData
+    };
+
+    window.dataLayer.push(payload);
+    logEvent(eventName, ecommerceData, logType);
+  }
+
+  // ── GA4 Events ────────────────────────────────────────────────
+
+  // 1. view_item — fires when user clicks on a product card
+  function trackViewItem(itemId) {
+    const p = PRODUCTS.find(x => x.item_id === itemId);
+    if (!p) return;
+    pushDataLayer('view_item', {
+      currency: p.currency,
+      value: p.price,
+      items: [{
+        item_id: p.item_id,
+        item_name: p.item_name,
+        item_brand: p.item_brand,
+        item_category: p.item_category,
+        price: p.price,
+        quantity: 1
+      }]
+    });
+  }
+
+  // 2. add_to_cart — fires when Add to Cart is clicked
+  function addToCart(itemId) {
+    const p = PRODUCTS.find(x => x.item_id === itemId);
+    if (!p) return;
+
+    const existing = cart.find(c => c.item_id === itemId);
+    if (existing) {
+      existing.quantity++;
+    } else {
+      cart.push({ ...p, quantity: 1 });
+    }
+
+    updateCartUI();
+
+    // ✅ GA4 add_to_cart
+    pushDataLayer('add_to_cart', {
+      currency: p.currency,
+      value: p.price,
+      items: [{
+        item_id: p.item_id,
+        item_name: p.item_name,
+        item_brand: p.item_brand,
+        item_category: p.item_category,
+        price: p.price,
+        quantity: 1
+      }]
+    }, 'highlight');
+
+    // Button feedback
+    const btn = document.getElementById(`btn-${itemId}`);
+    if (btn) {
+      btn.textContent = '✓ Added!';
+      btn.classList.add('added');
+      setTimeout(() => {
+        btn.textContent = 'Add to Cart';
+        btn.classList.remove('added');
+      }, 1500);
+    }
+  }
+
+  // 3. remove_from_cart
+  function removeFromCart(itemId) {
+    const p = cart.find(c => c.item_id === itemId);
+    if (!p) return;
+
+    pushDataLayer('remove_from_cart', {
+      currency: p.currency,
+      value: p.price * p.quantity,
+      items: [{
+        item_id: p.item_id,
+        item_name: p.item_name,
+        item_brand: p.item_brand,
+        item_category: p.item_category,
+        price: p.price,
+        quantity: p.quantity
+      }]
+    });
+
+    cart = cart.filter(c => c.item_id !== itemId);
+    updateCartUI();
+  }
+
+  // 4. view_cart — fires when cart sidebar opens
+  function openCart() {
+    document.getElementById('cart-overlay').classList.add('open');
+    document.getElementById('cart-sidebar').classList.add('open');
+
+    if (cart.length > 0) {
+      const total = cart.reduce((s, i) => s + i.price * i.quantity, 0);
+      pushDataLayer('view_cart', {
+        currency: "USD",
+        value: total,
+        items: cart.map(c => ({
+          item_id: c.item_id,
+          item_name: c.item_name,
+          item_brand: c.item_brand,
+          item_category: c.item_category,
+          price: c.price,
+          quantity: c.quantity
+        }))
+      }, 'highlight');
+    }
+  }
+
+  function closeCart() {
+    document.getElementById('cart-overlay').classList.remove('open');
+    document.getElementById('cart-sidebar').classList.remove('open');
+  }
+
+  // 5. begin_checkout — fires on Proceed to Checkout
+  function beginCheckout() {
+    if (cart.length === 0) {
+      showToast('Your cart is empty!');
+      return;
+    }
+    const total = cart.reduce((s, i) => s + i.price * i.quantity, 0);
+    pushDataLayer('begin_checkout', {
+      currency: "USD",
+      value: total,
+      coupon: "",
+      items: cart.map(c => ({
+        item_id: c.item_id,
+        item_name: c.item_name,
+        item_brand: c.item_brand,
+        item_category: c.item_category,
+        price: c.price,
+        quantity: c.quantity
+      }))
+    }, 'highlight');
+
+    // Simulate purchase after 1 second
+    setTimeout(() => simulatePurchase(total), 800);
+  }
+
+  // 6. purchase — simulated GA4 purchase event
+  function simulatePurchase(total) {
+    const txId = 'TXN-' + Date.now().toString(36).toUpperCase();
+    pushDataLayer('purchase', {
+      transaction_id: txId,
+      currency: "USD",
+      value: total,
+      tax: (total * 0.08).toFixed(2),
+      shipping: 0,
+      coupon: "",
+      items: cart.map(c => ({
+        item_id: c.item_id,
+        item_name: c.item_name,
+        item_brand: c.item_brand,
+        item_category: c.item_category,
+        price: c.price,
+        quantity: c.quantity
+      }))
+    }, 'purchase');
+
+    showToast(`✅ Purchase complete! Order ${txId}`);
+    cart = [];
+    closeCart();
+    updateCartUI();
+  }
+
+  // Nav click tracking
+  function trackNavClick(label) {
+    window.dataLayer.push({ ecommerce: null });
+    window.dataLayer.push({ event: 'navigation_click', nav_item: label });
+    logEvent('navigation_click', { nav_item: label });
+  }
+
+  // ── Cart UI Update ────────────────────────────────────────────
+  function updateCartUI() {
+    const totalQty = cart.reduce((s, i) => s + i.quantity, 0);
+    const totalVal = cart.reduce((s, i) => s + i.price * i.quantity, 0);
+
+    document.getElementById('cart-count').textContent = totalQty;
+    document.getElementById('cart-total').textContent = '$' + totalVal.toFixed(2);
+
+    const container = document.getElementById('cart-items');
+    if (cart.length === 0) {
+      container.innerHTML = `
+        <div class="cart-empty">
+          <div class="cart-empty-icon">🛍️</div>
+          <p>Your cart is empty</p>
+        </div>`;
+    } else {
+      container.innerHTML = cart.map(item => `
+        <div class="cart-item">
+          <div class="cart-item-emoji">${item.emoji}</div>
+          <div class="cart-item-info">
+            <div class="cart-item-name">${item.item_name}</div>
+            <div class="cart-item-price">$${item.price.toFixed(2)} each</div>
+            <div class="cart-item-actions">
+              <button class="qty-btn" onclick="changeQty('${item.item_id}', -1)">−</button>
+              <span class="qty-display">${item.quantity}</span>
+              <button class="qty-btn" onclick="changeQty('${item.item_id}', 1)">+</button>
+              <button class="remove-btn" onclick="removeFromCart('${item.item_id}')">Remove</button>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+  }
+
+  function changeQty(itemId, delta) {
+    const item = cart.find(c => c.item_id === itemId);
+    if (!item) return;
+    item.quantity += delta;
+    if (item.quantity <= 0) {
+      removeFromCart(itemId);
+      return;
+    }
+    updateCartUI();
+  }
+
+  // ── Toast ─────────────────────────────────────────────────────
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 3500);
+  }
+
+  // ── Event Log ─────────────────────────────────────────────────
+  function logEvent(eventName, data, type = 'default') {
+    eventCount++;
+    document.getElementById('event-count').textContent = eventCount + ' event' + (eventCount !== 1 ? 's' : '');
+
+    const log = document.getElementById('event-log-body');
+    const time = new Date().toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' });
+
+    // Compact data summary
+    let summary = '';
+    if (data.items) {
+      const names = data.items.map(i => i.item_name).join(', ');
+      summary = `items: [${names}]`;
+      if (data.value) summary += ` | value: $${parseFloat(data.value).toFixed(2)}`;
+      if (data.transaction_id) summary += ` | txn: ${data.transaction_id}`;
+    } else {
+      summary = JSON.stringify(data);
+    }
+
+    const entry = document.createElement('div');
+    entry.className = `log-entry ${type}`;
+    entry.innerHTML = `
+      <span class="log-time">${time}</span>
+      <span class="log-event">${eventName}</span>
+      <span class="log-data">${summary}</span>
+    `;
+
+    // Remove placeholder text
+    const placeholder = log.querySelector('div[style]');
+    if (placeholder) placeholder.remove();
+
+    log.prepend(entry);
+
+    // Keep log scrolled to top
+    log.scrollTop = 0;
+  }
+
+  function clearLog() {
+    const log = document.getElementById('event-log-body');
+    log.innerHTML = `<div style="color:#4b5563; padding:8px 0; font-family:'DM Sans',sans-serif; font-size:12px;">Log cleared — keep interacting to see new events...</div>`;
+    eventCount = 0;
+    document.getElementById('event-count').textContent = '0 events';
+  }
+
+  function toggleLog() {
+    const body = document.getElementById('event-log-body');
+    const icon = document.getElementById('toggle-icon');
+    logExpanded = !logExpanded;
+    body.classList.toggle('collapsed', !logExpanded);
+    icon.textContent = logExpanded ? '▲' : '▼';
+  }
+
+  // ── Init ──────────────────────────────────────────────────────
+  renderProducts();
+</script>
+
+</body>
+</html>
