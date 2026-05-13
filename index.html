@@ -1,1123 +1,724 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>LUMÉ Shop — GA4 Demo Store</title>
-
-  <!-- ================================================
-    GOOGLE TAG MANAGER — Replace GTM-MVLN8S2F with your GTM Container ID
-    Get yours free at: https://tagmanager.google.com
-  ================================================ -->
-  <script>
-    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-MVLN8S2F');
-  </script>
-  <!-- End Google Tag Manager -->
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-
-  <style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Poonam Prasad — AI-Powered Digital Marketing &amp; Ecommerce Leader</title>
+<style>
+  :root {
+    --bg: #0b0d12;
+    --bg-elev: #141822;
+    --bg-elev-2: #1c2130;
+    --text: #ecf0f7;
+    --text-dim: #9aa3b2;
+    --accent: #d97757;        /* Claude/Anthropic warm accent */
+    --accent-2: #7c9cff;      /* secondary highlight */
+    --accent-3: #5cd6b9;
+    --border: #232838;
+    --shadow: 0 10px 40px rgba(0,0,0,0.4);
+    --radius: 14px;
+  }
+  @media (prefers-color-scheme: light) {
     :root {
-      --cream: #F9F6F1;
-      --charcoal: #1A1A1A;
-      --warm-gray: #8C8279;
-      --accent: #C9A96E;
-      --accent-dark: #A8844A;
-      --card-bg: #FFFFFF;
-      --border: #E8E2D9;
-      --tag-bg: #EDE8E0;
-      --event-bg: #0F1117;
-      --event-green: #4ADE80;
-      --event-blue: #60A5FA;
-      --event-yellow: #FCD34D;
-      --shadow: 0 4px 24px rgba(0,0,0,0.07);
+      --bg: #faf7f4;
+      --bg-elev: #ffffff;
+      --bg-elev-2: #f1ede7;
+      --text: #1a1f2c;
+      --text-dim: #5a6478;
+      --accent: #c45a36;
+      --accent-2: #3a5bd9;
+      --accent-3: #0aa37f;
+      --border: #e3ddd3;
+      --shadow: 0 8px 30px rgba(60,40,20,0.08);
     }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container { max-width: 1080px; margin: 0 auto; padding: 32px 24px 80px; }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, var(--bg-elev) 0%, var(--bg-elev-2) 100%);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 48px 40px;
+    box-shadow: var(--shadow);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: -120px; right: -80px;
+    width: 360px; height: 360px;
+    background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+    opacity: 0.22;
+    pointer-events: none;
+  }
+  .ai-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(90deg, rgba(217,119,87,0.15), rgba(124,156,255,0.15));
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .ai-badge .dot {
+    width: 8px; height: 8px;
+    background: var(--accent);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--accent);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(1.2); }
+  }
+  .name {
+    font-size: clamp(32px, 5vw, 50px);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin: 0 0 8px;
+    background: linear-gradient(90deg, var(--text) 0%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .title {
+    font-size: clamp(16px, 2vw, 21px);
+    color: var(--text-dim);
+    margin: 0 0 22px;
+    font-weight: 500;
+  }
+  .meta { display: flex; flex-wrap: wrap; gap: 10px 20px; font-size: 14px; color: var(--text-dim); }
+  .meta a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
+  .meta a:hover { color: var(--accent-2); }
+  .meta .pill {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 4px 12px; background: var(--bg-elev-2);
+    border: 1px solid var(--border); border-radius: 999px;
+    font-size: 13px;
+  }
+  .badge-uk {
+    background: linear-gradient(90deg, var(--accent-3) 0%, var(--accent-2) 100%);
+    color: white; padding: 4px 12px; border-radius: 999px;
+    font-size: 12px; font-weight: 600; border: 0;
+  }
 
-    body {
-      background: var(--cream);
-      font-family: 'DM Sans', sans-serif;
-      color: var(--charcoal);
-      min-height: 100vh;
-    }
+  /* SECTIONS */
+  section { margin-top: 48px; }
+  .section-title {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--accent);
+    font-weight: 700;
+    margin: 0 0 20px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .section-title::after {
+    content: ""; flex: 1; height: 1px; background: var(--border);
+  }
+  .profile-text {
+    font-size: 16px;
+    color: var(--text);
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px 28px;
+    box-shadow: var(--shadow);
+  }
+  .profile-text strong { color: var(--accent); }
 
-    /* ─── HEADER ─── */
-    header {
-      background: var(--charcoal);
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 48px;
-      height: 72px;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
+  /* HIGHLIGHTS */
+  .highlights {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+  }
+  .stat {
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    transition: border-color 0.25s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .stat:hover { border-color: var(--accent); }
+  .stat::before {
+    content: ""; position: absolute; left: 0; top: 0; bottom: 0;
+    width: 3px; background: var(--accent);
+    opacity: 0.4;
+  }
+  .stat-num {
+    font-size: 36px; font-weight: 800;
+    color: var(--accent); line-height: 1;
+    margin-bottom: 6px;
+  }
+  .stat-label { font-size: 14px; color: var(--text-dim); font-weight: 500; }
 
-    .logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 28px;
-      font-weight: 300;
-      letter-spacing: 6px;
-      text-transform: uppercase;
-    }
-    .logo span { color: var(--accent); }
+  /* AI TOOLBOX */
+  .toolbox {
+    background: linear-gradient(135deg, rgba(217,119,87,0.08), rgba(124,156,255,0.08));
+    border: 1px solid var(--accent);
+    border-radius: var(--radius);
+    padding: 24px 28px;
+    margin-top: 12px;
+  }
+  .toolbox-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 12px;
+    margin-top: 12px;
+  }
+  .tool {
+    display: flex; align-items: center; gap: 10px;
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-size: 13px;
+    font-weight: 500;
+    transition: border-color 0.2s, transform 0.15s;
+  }
+  .tool:hover { border-color: var(--accent); }
+  .tool-icon {
+    width: 22px; height: 22px;
+    flex-shrink: 0;
+    display: inline-flex; align-items: center; justify-content: center;
+    background: white;
+    border-radius: 5px;
+    padding: 3px;
+  }
+  .tool-icon img { width: 100%; height: 100%; object-fit: contain; }
+  .tool-purpose { color: var(--text-dim); font-size: 11px; display: block; }
 
-    nav a {
-      color: rgba(255,255,255,0.65);
-      text-decoration: none;
-      font-size: 13px;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      margin-left: 32px;
-      transition: color 0.2s;
-    }
-    nav a:hover { color: white; }
+  /* COMPETENCIES */
+  .competencies {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 12px;
+  }
+  .skill {
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 18px;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .skill:hover { background: var(--bg-elev-2); border-color: var(--accent); }
+  .skill-icon {
+    width: 28px; height: 28px;
+    flex-shrink: 0;
+    display: inline-flex; align-items: center; justify-content: center;
+    background: var(--bg-elev-2);
+    border-radius: 6px;
+    padding: 4px;
+  }
+  .skill-icon img, .skill-icon svg {
+    width: 100%; height: 100%; object-fit: contain;
+  }
+  @media (prefers-color-scheme: dark) {
+    .skill-icon img[src$=".svg"], .tool-icon img[src$=".svg"] { filter: invert(0.9); }
+  }
+  .skill-logos { display: flex; gap: 4px; }
+  .skill-logos .skill-icon { width: 24px; height: 24px; }
 
-    .cart-btn {
-      background: none;
-      border: 1px solid rgba(255,255,255,0.3);
-      color: white;
-      padding: 10px 20px;
-      border-radius: 4px;
-      cursor: pointer;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 13px;
-      letter-spacing: 1px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      transition: all 0.2s;
-    }
-    .cart-btn:hover { background: rgba(255,255,255,0.08); border-color: var(--accent); }
-    .cart-count {
-      background: var(--accent);
-      color: var(--charcoal);
-      border-radius: 50%;
-      width: 20px;
-      height: 20px;
-      font-size: 11px;
-      font-weight: 500;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
+  /* TIMELINE */
+  .timeline { position: relative; padding-left: 28px; }
+  .timeline::before {
+    content: ""; position: absolute;
+    left: 8px; top: 12px; bottom: 12px;
+    width: 2px;
+    background: linear-gradient(180deg, var(--accent), var(--accent-2));
+    opacity: 0.4;
+  }
+  .job {
+    position: relative;
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    margin-bottom: 16px;
+    transition: border-color 0.25s;
+  }
+  .job::before {
+    content: ""; position: absolute;
+    left: -27px; top: 28px;
+    width: 14px; height: 14px;
+    background: var(--accent);
+    border: 3px solid var(--bg);
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px var(--accent);
+  }
+  .job:hover { border-color: var(--accent); }
+  .job-header {
+    display: flex; flex-wrap: wrap;
+    align-items: baseline; justify-content: space-between;
+    gap: 8px;
+  }
+  .job-header > div { display: flex; align-items: flex-start; gap: 0; }
+  .job-text { display: flex; flex-direction: column; }
+  .company-logo {
+    min-width: 44px; height: 44px;
+    flex-shrink: 0;
+    display: inline-flex; align-items: center; justify-content: center;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 6px 10px;
+    margin-right: 14px;
+    vertical-align: middle;
+  }
+  .company-logo img { max-width: 100px; max-height: 100%; width: auto; height: auto; object-fit: contain; }
+  .job-company {
+    font-size: 18px; font-weight: 700; color: var(--text);
+    text-decoration: none;
+    border-bottom: 1px dashed transparent;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  a.job-company:hover { color: var(--accent); border-bottom-color: var(--accent); }
+  .job-location { font-size: 13px; color: var(--text-dim); display: block; margin-top: 2px; }
+  .job-dates {
+    font-size: 13px; color: var(--accent); font-weight: 600;
+    background: var(--bg-elev-2); padding: 3px 10px; border-radius: 999px;
+    white-space: nowrap;
+  }
+  .job-role { font-size: 15px; color: var(--accent-3); font-weight: 600; margin-top: 4px; }
+  .job-context { font-size: 13px; color: var(--text-dim); font-style: italic; margin-top: 4px; }
+  .job-bullets { margin-top: 14px; padding-left: 0; list-style: none; }
+  .job-bullets li {
+    position: relative; padding-left: 22px; margin-bottom: 8px;
+    font-size: 14.5px; color: var(--text);
+  }
+  .job-bullets li::before {
+    content: "→"; position: absolute; left: 0;
+    color: var(--accent); font-weight: bold;
+  }
+  .job-bullets li.ai-bullet::before { content: "✦"; color: var(--accent); }
+  .job-bullets strong { color: var(--accent); }
 
-    /* ─── HERO ─── */
-    .hero {
-      background: linear-gradient(135deg, #1A1A1A 0%, #2D2520 50%, #1A1A1A 100%);
-      color: white;
-      text-align: center;
-      padding: 80px 48px 72px;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse at 60% 40%, rgba(201,169,110,0.12) 0%, transparent 60%);
-    }
-    .hero-tag {
-      display: inline-block;
-      border: 1px solid rgba(201,169,110,0.5);
-      color: var(--accent);
-      font-size: 11px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      padding: 6px 16px;
-      border-radius: 2px;
-      margin-bottom: 24px;
-    }
-    .hero h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(42px, 6vw, 72px);
-      font-weight: 300;
-      line-height: 1.1;
-      margin-bottom: 16px;
-      position: relative;
-    }
-    .hero h1 em { font-style: italic; color: var(--accent); }
-    .hero p {
-      color: rgba(255,255,255,0.55);
-      font-size: 15px;
-      font-weight: 300;
-      letter-spacing: 0.5px;
-      position: relative;
-    }
+  /* EDUCATION */
+  .edu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 14px;
+  }
+  .edu {
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 18px 20px;
+  }
+  .edu:hover { border-color: var(--accent); }
+  .edu-header { display: flex; align-items: center; }
+  .edu-logo {
+    min-width: 40px; height: 40px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 5px 8px;
+    display: inline-flex; align-items: center; justify-content: center;
+    margin-right: 12px;
+    flex-shrink: 0;
+  }
+  .edu-logo img { max-width: 90px; max-height: 100%; width: auto; height: auto; object-fit: contain; }
+  .edu-degree { font-weight: 700; font-size: 15px; margin-bottom: 4px; }
+  .edu-school { color: var(--text-dim); font-size: 14px; }
+  .edu-school a {
+    color: inherit; text-decoration: none;
+    border-bottom: 1px dashed var(--border);
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .edu-school a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+  .edu-year { color: var(--accent); font-size: 13px; font-weight: 600; margin-top: 6px; }
 
-    /* ─── GTM NOTICE BANNER ─── */
-    .gtm-notice {
-      background: linear-gradient(90deg, #1e3a2f, #0f2d20);
-      border-bottom: 1px solid #2d5a3d;
-      color: #86efac;
-      padding: 10px 48px;
-      font-size: 12.5px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .gtm-notice strong { color: #4ade80; }
-    .gtm-notice a { color: #86efac; }
+  .certs {
+    background: var(--bg-elev);
+    border: 1px dashed var(--accent);
+    border-radius: var(--radius);
+    padding: 18px 22px;
+    margin-top: 14px;
+    font-size: 14px;
+    color: var(--text-dim);
+  }
+  .certs strong { color: var(--accent); }
+  .cert-tag {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: var(--bg-elev-2);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 4px 12px;
+    margin: 6px 4px 0 0;
+    font-size: 12px;
+    color: var(--text);
+  }
+  .cert-tag.ai-cert { border-color: var(--accent); }
+  .cert-tag.ai-cert::before {
+    content: "✦"; color: var(--accent); font-weight: bold;
+  }
 
-    /* ─── PRODUCTS SECTION ─── */
-    .section-header {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      padding: 56px 48px 28px;
-    }
-    .section-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 32px;
-      font-weight: 400;
-    }
-    .section-sub {
-      color: var(--warm-gray);
-      font-size: 13px;
-      letter-spacing: 0.5px;
-    }
+  footer {
+    margin-top: 56px; padding-top: 24px;
+    border-top: 1px solid var(--border);
+    text-align: center; color: var(--text-dim); font-size: 13px;
+  }
+  .actions {
+    display: flex; gap: 10px;
+    justify-content: center; flex-wrap: wrap;
+    margin-bottom: 14px;
+  }
+  .btn {
+    background: var(--accent); color: white;
+    border: 0; padding: 10px 20px;
+    border-radius: 10px; font-size: 14px; font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.15s, box-shadow 0.2s;
+    text-decoration: none;
+    display: inline-flex; align-items: center; gap: 6px;
+  }
+  .btn:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(217, 119, 87, 0.35); }
+  .btn.secondary {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text);
+  }
+  .btn.secondary:hover { border-color: var(--accent); color: var(--accent); }
 
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 24px;
-      padding: 0 48px 64px;
+  @media print {
+    body { background: white; color: black; }
+    .container { max-width: 100%; padding: 0; }
+    .hero, .profile-text, .stat, .skill, .job, .edu, .certs, .toolbox {
+      background: white; border: 1px solid #ddd; box-shadow: none; break-inside: avoid;
     }
-
-    .product-card {
-      background: var(--card-bg);
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      transition: transform 0.25s, box-shadow 0.25s;
-      cursor: pointer;
-    }
-    .product-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 40px rgba(0,0,0,0.12);
-    }
-
-    .product-img {
-      width: 100%;
-      aspect-ratio: 4/3;
-      object-fit: cover;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 64px;
-      background: var(--tag-bg);
-      position: relative;
-      overflow: hidden;
-    }
-    .product-img-inner {
-      width: 100%;
-      padding-top: 75%;
-      position: relative;
-      background: linear-gradient(135deg, #EDE8E0, #F5F0E8);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .product-emoji {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 72px;
-      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.08));
-    }
-    .product-badge {
-      position: absolute;
-      top: 12px;
-      left: 12px;
-      background: var(--charcoal);
-      color: var(--accent);
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      padding: 4px 10px;
-      border-radius: 2px;
-    }
-
-    .product-info { padding: 20px; }
-    .product-category {
-      font-size: 11px;
-      color: var(--warm-gray);
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 6px;
-    }
-    .product-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 20px;
-      font-weight: 400;
-      margin-bottom: 4px;
-      line-height: 1.3;
-    }
-    .product-desc {
-      font-size: 13px;
-      color: var(--warm-gray);
-      line-height: 1.5;
-      margin-bottom: 16px;
-    }
-    .product-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .product-price {
-      font-size: 20px;
-      font-weight: 500;
-      color: var(--charcoal);
-    }
-    .product-price span {
-      font-size: 13px;
-      font-weight: 300;
-      color: var(--warm-gray);
-      margin-left: 4px;
-    }
-
-    .add-cart-btn {
-      background: var(--charcoal);
-      color: white;
-      border: none;
-      padding: 10px 18px;
-      border-radius: 4px;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: background 0.2s, transform 0.1s;
-    }
-    .add-cart-btn:hover { background: var(--accent-dark); }
-    .add-cart-btn:active { transform: scale(0.96); }
-    .add-cart-btn.added {
-      background: #16a34a;
-    }
-
-    /* ─── CART SIDEBAR ─── */
-    .cart-overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.45);
-      z-index: 200;
-    }
-    .cart-overlay.open { display: block; }
-
-    .cart-sidebar {
-      position: fixed;
-      top: 0; right: -480px;
-      width: 440px;
-      max-width: 100vw;
-      height: 100vh;
-      background: white;
-      z-index: 201;
-      display: flex;
-      flex-direction: column;
-      transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-      box-shadow: -8px 0 40px rgba(0,0,0,0.15);
-    }
-    .cart-sidebar.open { right: 0; }
-
-    .cart-header {
-      padding: 28px 28px 20px;
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .cart-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 24px;
-      font-weight: 400;
-    }
-    .close-cart {
-      background: none;
-      border: none;
-      font-size: 22px;
-      cursor: pointer;
-      color: var(--warm-gray);
-      padding: 4px;
-      line-height: 1;
-    }
-
-    .cart-items {
-      flex: 1;
-      overflow-y: auto;
-      padding: 20px 28px;
-    }
-    .cart-empty {
-      text-align: center;
-      padding: 60px 20px;
-      color: var(--warm-gray);
-    }
-    .cart-empty-icon { font-size: 48px; margin-bottom: 12px; }
-    .cart-empty p { font-size: 14px; }
-
-    .cart-item {
-      display: flex;
-      gap: 16px;
-      padding: 16px 0;
-      border-bottom: 1px solid var(--border);
-      animation: slideIn 0.3s ease;
-    }
-    @keyframes slideIn {
-      from { opacity: 0; transform: translateX(20px); }
-      to { opacity: 1; transform: translateX(0); }
-    }
-    .cart-item-emoji {
-      width: 72px;
-      height: 72px;
-      background: var(--tag-bg);
-      border-radius: 6px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 36px;
-      flex-shrink: 0;
-    }
-    .cart-item-info { flex: 1; }
-    .cart-item-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 17px;
-      margin-bottom: 4px;
-    }
-    .cart-item-price { font-size: 14px; color: var(--warm-gray); }
-    .cart-item-actions {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-top: 8px;
-    }
-    .qty-btn {
-      width: 28px; height: 28px;
-      border: 1px solid var(--border);
-      background: none;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: background 0.15s;
-    }
-    .qty-btn:hover { background: var(--tag-bg); }
-    .qty-display {
-      font-size: 14px;
-      font-weight: 500;
-      min-width: 20px;
-      text-align: center;
-    }
-    .remove-btn {
-      margin-left: auto;
-      background: none;
-      border: none;
-      color: #ef4444;
-      cursor: pointer;
-      font-size: 12px;
-      letter-spacing: 0.5px;
-      padding: 4px 8px;
-    }
-
-    .cart-footer {
-      padding: 20px 28px 28px;
-      border-top: 1px solid var(--border);
-    }
-    .cart-subtotal {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 6px;
-    }
-    .cart-subtotal label { font-size: 13px; color: var(--warm-gray); }
-    .cart-subtotal .total-val { font-size: 22px; font-weight: 500; }
-    .cart-subtotal .tax-note { font-size: 11px; color: var(--warm-gray); }
-
-    .checkout-btn {
-      width: 100%;
-      background: var(--charcoal);
-      color: white;
-      border: none;
-      padding: 16px;
-      border-radius: 6px;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 14px;
-      font-weight: 500;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      cursor: pointer;
-      margin-top: 16px;
-      transition: background 0.2s;
-    }
-    .checkout-btn:hover { background: var(--accent-dark); }
-
-    /* ─── PURCHASE SUCCESS TOAST ─── */
-    .toast {
-      position: fixed;
-      bottom: 32px;
-      left: 50%;
-      transform: translateX(-50%) translateY(100px);
-      background: #16a34a;
-      color: white;
-      padding: 14px 28px;
-      border-radius: 8px;
-      font-size: 14px;
-      font-weight: 500;
-      z-index: 999;
-      transition: transform 0.3s;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-    }
-    .toast.show { transform: translateX(-50%) translateY(0); }
-
-    /* ─── EVENT LOG PANEL ─── */
-    .event-log-wrapper {
-      background: var(--event-bg);
-      padding: 0 48px 0;
-      position: sticky;
-      bottom: 0;
-      z-index: 50;
-      border-top: 3px solid #22c55e;
-    }
-    .event-log-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 12px 0;
-      cursor: pointer;
-      user-select: none;
-    }
-    .event-log-title {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      color: white;
-      font-size: 13px;
-      font-weight: 500;
-      letter-spacing: 0.5px;
-    }
-    .live-dot {
-      width: 8px; height: 8px;
-      background: var(--event-green);
-      border-radius: 50%;
-      animation: pulse 1.5s infinite;
-    }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.3; }
-    }
-    .log-controls {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .clear-log-btn {
-      background: none;
-      border: 1px solid rgba(255,255,255,0.2);
-      color: rgba(255,255,255,0.6);
-      font-size: 11px;
-      padding: 4px 12px;
-      border-radius: 3px;
-      cursor: pointer;
-      font-family: 'DM Sans', sans-serif;
-      letter-spacing: 0.5px;
-    }
-    .toggle-log-btn {
-      background: none;
-      border: none;
-      color: rgba(255,255,255,0.5);
-      font-size: 18px;
-      cursor: pointer;
-      line-height: 1;
-    }
-
-    #event-log-body {
-      max-height: 240px;
-      overflow-y: auto;
-      padding-bottom: 16px;
-      font-family: 'Courier New', monospace;
-      font-size: 12px;
-    }
-    #event-log-body.collapsed { display: none; }
-
-    .log-entry {
-      display: flex;
-      gap: 10px;
-      padding: 5px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.04);
-      animation: logIn 0.2s ease;
-    }
-    @keyframes logIn {
-      from { opacity: 0; transform: translateY(-4px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .log-time { color: #6b7280; min-width: 60px; }
-    .log-event { color: var(--event-green); min-width: 200px; font-weight: bold; }
-    .log-data { color: #94a3b8; word-break: break-all; }
-    .log-entry.highlight .log-event { color: var(--event-yellow); }
-    .log-entry.purchase .log-event { color: #f472b6; }
-
-    .event-count-badge {
-      background: #22c55e;
-      color: #0f1117;
-      font-size: 10px;
-      font-weight: 700;
-      padding: 2px 7px;
-      border-radius: 10px;
-      font-family: 'DM Sans', sans-serif;
-    }
-
-    /* ─── FOOTER ─── */
-    footer {
-      background: var(--charcoal);
-      color: rgba(255,255,255,0.35);
-      text-align: center;
-      padding: 28px;
-      font-size: 12.5px;
-      letter-spacing: 0.5px;
-      line-height: 1.8;
-    }
-    footer strong { color: rgba(255,255,255,0.7); }
-
-    /* ─── RESPONSIVE ─── */
-    @media (max-width: 768px) {
-      header { padding: 0 20px; }
-      nav { display: none; }
-      .section-header, .products-grid { padding-left: 20px; padding-right: 20px; }
-      .event-log-wrapper { padding: 0 20px; }
-      .hero { padding: 48px 20px; }
-      .gtm-notice { padding: 10px 20px; font-size: 11px; }
-    }
-  </style>
+    .name { color: black !important; -webkit-text-fill-color: black; }
+    .actions, footer { display: none; }
+    section { margin-top: 24px; }
+  }
+  @media (max-width: 600px) {
+    .hero { padding: 32px 24px; }
+    .container { padding: 16px 14px 60px; }
+    .timeline { padding-left: 22px; }
+    .job::before { left: -22px; }
+  }
+</style>
 </head>
 <body>
+  <div class="container">
 
-<!-- ============================================================
-  GTM NOSCRIPT — Required for GTM to work without JavaScript
-============================================================ -->
-<noscript>
-  <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MVLN8S2F"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe>
-</noscript>
-
-<!-- HEADER -->
-<header>
-  <div class="logo">LUM<span>É</span></div>
-  <nav>
-    <a href="#" onclick="trackNavClick('New In')">New In</a>
-    <a href="#" onclick="trackNavClick('Collections')">Collections</a>
-    <a href="#" onclick="trackNavClick('About')">About</a>
-  </nav>
-  <button class="cart-btn" onclick="openCart()">
-    🛒 Cart <span class="cart-count" id="cart-count">0</span>
-  </button>
-</header>
-
-<!-- GTM SETUP NOTICE -->
-<div class="gtm-notice">
-  🟢 &nbsp;<strong>GTM + GA4 Demo Active</strong> — All dataLayer events are firing below ↓ &nbsp;|&nbsp;
-  Replace <strong>GTM-MVLN8S2F</strong> in the HTML with your GTM Container ID to connect to your GTM account &nbsp;|&nbsp;
-  <a href="https://tagmanager.google.com" target="_blank">Get free GTM ID →</a>
-</div>
-
-<!-- HERO -->
-<div class="hero">
-  <div class="hero-tag">New Collection 2025</div>
-  <h1>Curated for the<br><em>discerning few</em></h1>
-  <p>Premium essentials — beautifully made, thoughtfully designed</p>
-</div>
-
-<!-- PRODUCTS -->
-<div class="section-header">
-  <h2 class="section-title">Featured Products</h2>
-  <span class="section-sub">6 items</span>
-</div>
-
-<div class="products-grid" id="products-grid">
-  <!-- Products injected by JS below -->
-</div>
-
-<!-- CART SIDEBAR -->
-<div class="cart-overlay" id="cart-overlay" onclick="closeCart()"></div>
-<div class="cart-sidebar" id="cart-sidebar">
-  <div class="cart-header">
-    <div class="cart-title">Your Cart</div>
-    <button class="close-cart" onclick="closeCart()">✕</button>
-  </div>
-  <div class="cart-items" id="cart-items">
-    <div class="cart-empty">
-      <div class="cart-empty-icon">🛍️</div>
-      <p>Your cart is empty</p>
-    </div>
-  </div>
-  <div class="cart-footer">
-    <div class="cart-subtotal">
-      <div>
-        <label>Subtotal</label>
-        <div class="tax-note">Taxes calculated at checkout</div>
+    <!-- HERO -->
+    <header class="hero">
+      <div class="ai-badge"><span class="dot"></span>AI-Forward · Available Immediately · London</div>
+      <h1 class="name">Poonam Prasad</h1>
+      <p class="title">AI-Powered Digital Marketing &amp; Ecommerce Leader<br><span style="font-size:0.85em;color:var(--text-dim);">Marketplace Strategy · Generative AI · Performance Marketing</span></p>
+      <div class="meta">
+        <a href="mailto:poonamprasad03@gmail.com">✉ poonamprasad03@gmail.com</a>
+        <a href="tel:+919953638641">☏ +91 99536 38641</a>
+        <span class="pill">📍 London, UK</span>
+        <span class="badge-uk">🇬🇧 British Passport · No Sponsorship Required</span>
       </div>
-      <div class="total-val" id="cart-total">$0.00</div>
-    </div>
-    <button class="checkout-btn" onclick="beginCheckout()">Proceed to Checkout →</button>
-  </div>
-</div>
+    </header>
 
-<!-- SUCCESS TOAST -->
-<div class="toast" id="toast"></div>
+    <!-- PROFILE -->
+    <section>
+      <h2 class="section-title">Executive Profile</h2>
+      <p class="profile-text">
+        Senior Digital Commerce leader with <strong>12 years</strong> of marketplace and performance-marketing leadership for global electronics brands — now building at the intersection of <strong>ecommerce and applied AI</strong>. Track record of delivering measurable impact at scale: a <strong>10x revenue scale-up</strong>, <strong>50% customer-base expansion</strong>, and marketplace diversification from 3 to 8 platforms. Currently upskilling deeply across the modern AI marketing stack — <strong>Claude, ChatGPT, GA4, Meta Blueprint, HubSpot AI</strong> — to bring agentic workflows, AI-driven content production, and predictive analytics into ecommerce operations. Permanently based in London, eligible to work without sponsorship, and ready to help a UK or European business turn AI into measurable revenue.
+      </p>
+    </section>
 
-<!-- ============================================================
-  EVENT LOG PANEL — Shows all GA4 dataLayer events in real time
-============================================================ -->
-<div class="event-log-wrapper">
-  <div class="event-log-header" onclick="toggleLog()">
-    <div class="event-log-title">
-      <div class="live-dot"></div>
-      📊 &nbsp;DataLayer / GA4 Event Log
-      <span class="event-count-badge" id="event-count">0 events</span>
-    </div>
-    <div class="log-controls">
-      <button class="clear-log-btn" onclick="event.stopPropagation(); clearLog()">Clear</button>
-      <button class="toggle-log-btn" id="toggle-icon">▲</button>
-    </div>
-  </div>
-  <div id="event-log-body">
-    <div style="color:#4b5563; padding:8px 0; font-family:'DM Sans',sans-serif; font-size:12px;">
-      👆 Interact with the store above — GA4 events will appear here in real time...
-    </div>
-  </div>
-</div>
+    <!-- HIGHLIGHTS -->
+    <section>
+      <h2 class="section-title">Career Highlights</h2>
+      <div class="highlights">
+        <div class="stat"><div class="stat-num">10x</div><div class="stat-label">Revenue Growth — scaled £15K → £150K across 8 platforms</div></div>
+        <div class="stat"><div class="stat-num">50%</div><div class="stat-label">Customer Base Expansion via SEO, paid media &amp; catalogue redesign</div></div>
+        <div class="stat"><div class="stat-num">8</div><div class="stat-label">Active Marketplace Portals — diversified from 3 to 8</div></div>
+        <div class="stat"><div class="stat-num">12+</div><div class="stat-label">Years leading ecommerce for global MNC brands</div></div>
+      </div>
+    </section>
 
-<footer>
-  <strong>LUMÉ Demo Store</strong> — Built for GA4 / GTM Testing<br>
-  All events use <strong>window.dataLayer.push()</strong> — GA4 Ecommerce Schema<br>
-  Host this file FREE on <a href="https://pages.github.com" target="_blank" style="color:rgba(255,255,255,0.5)">GitHub Pages</a> or
-  <a href="https://netlify.com/drop" target="_blank" style="color:rgba(255,255,255,0.5)">Netlify Drop</a>
-</footer>
-
-<!-- ============================================================
-  MAIN SCRIPT — Products, Cart, GA4 DataLayer Events
-============================================================ -->
-<script>
-  // ── Initialize dataLayer ──────────────────────────────────────
-  window.dataLayer = window.dataLayer || [];
-
-  // ── Product Catalog ───────────────────────────────────────────
-  const PRODUCTS = [
-    {
-      item_id: "SKU-001",
-      item_name: "Obsidian Ceramic Mug",
-      item_brand: "LUMÉ",
-      item_category: "Homeware",
-      price: 48.00,
-      currency: "USD",
-      emoji: "🫖",
-      desc: "Hand-thrown matte black ceramic. 12oz capacity.",
-      badge: "Bestseller"
-    },
-    {
-      item_id: "SKU-002",
-      item_name: "Linen Table Runner",
-      item_brand: "LUMÉ",
-      item_category: "Homeware",
-      price: 72.00,
-      currency: "USD",
-      emoji: "🏮",
-      desc: "Stone-washed natural linen. 180cm length.",
-      badge: null
-    },
-    {
-      item_id: "SKU-003",
-      item_name: "Amber Glass Vase",
-      item_brand: "LUMÉ",
-      item_category: "Decor",
-      price: 94.00,
-      currency: "USD",
-      emoji: "🏺",
-      desc: "Mouth-blown borosilicate glass. 28cm tall.",
-      badge: "New"
-    },
-    {
-      item_id: "SKU-004",
-      item_name: "Cedar Candle Set",
-      item_brand: "LUMÉ",
-      item_category: "Fragrance",
-      price: 56.00,
-      currency: "USD",
-      emoji: "🕯️",
-      desc: "Soy wax with cedarwood & vetiver. Set of 2.",
-      badge: null
-    },
-    {
-      item_id: "SKU-005",
-      item_name: "Wool Throw Blanket",
-      item_brand: "LUMÉ",
-      item_category: "Textiles",
-      price: 138.00,
-      currency: "USD",
-      emoji: "🧶",
-      desc: "Merino wool blend. 140 × 180cm. Sand colourway.",
-      badge: "Limited"
-    },
-    {
-      item_id: "SKU-006",
-      item_name: "Brass Bookends",
-      item_brand: "LUMÉ",
-      item_category: "Decor",
-      price: 82.00,
-      currency: "USD",
-      emoji: "📚",
-      desc: "Solid brushed brass. Pair. Geometric form.",
-      badge: null
-    }
-  ];
-
-  // ── Cart State ────────────────────────────────────────────────
-  let cart = [];
-  let eventCount = 0;
-  let logExpanded = true;
-
-  // ── Render Products ───────────────────────────────────────────
-  function renderProducts() {
-    const grid = document.getElementById('products-grid');
-    grid.innerHTML = PRODUCTS.map((p, i) => `
-      <div class="product-card" onclick="trackViewItem('${p.item_id}')">
-        <div class="product-img">
-          <div class="product-img-inner">
-            <div class="product-emoji">${p.emoji}</div>
-            ${p.badge ? `<div class="product-badge">${p.badge}</div>` : ''}
+    <!-- AI TOOLBOX -->
+    <section>
+      <h2 class="section-title">AI &amp; Marketing Toolbox</h2>
+      <div class="toolbox">
+        <p style="margin:0 0 6px;color:var(--text-dim);font-size:14px;">Currently building hands-on fluency across the agentic and generative AI stack to accelerate ecommerce, content, and performance-marketing workflows.</p>
+        <div class="toolbox-grid">
+          <div class="tool">
+            <span class="tool-icon"><img src="resume_logos/claude.svg" alt="Claude"></span>
+            <span><strong>Claude / Claude Code</strong><span class="tool-purpose">Agentic content &amp; data workflows</span></span>
           </div>
-        </div>
-        <div class="product-info">
-          <div class="product-category">${p.item_category}</div>
-          <div class="product-name">${p.item_name}</div>
-          <div class="product-desc">${p.desc}</div>
-          <div class="product-footer">
-            <div class="product-price">$${p.price.toFixed(2)}<span>USD</span></div>
-            <button class="add-cart-btn" id="btn-${p.item_id}"
-              onclick="event.stopPropagation(); addToCart('${p.item_id}')">
-              Add to Cart
-            </button>
+          <div class="tool">
+            <span class="tool-icon"><img src="resume_logos/openai.svg" alt="ChatGPT"></span>
+            <span><strong>ChatGPT</strong><span class="tool-purpose">Catalogue copy, A/B variants, analysis</span></span>
+          </div>
+          <div class="tool">
+            <span class="tool-icon"><img src="resume_logos/perplexity.svg" alt="Perplexity"></span>
+            <span><strong>Perplexity</strong><span class="tool-purpose">Competitive &amp; market research</span></span>
+          </div>
+          <div class="tool">
+            <span class="tool-icon"><img src="resume_logos/googleanalytics.svg" alt="GA4"></span>
+            <span><strong>GA4</strong><span class="tool-purpose">Attribution &amp; conversion analysis</span></span>
+          </div>
+          <div class="tool">
+            <span class="tool-icon"><img src="resume_logos/googleads.svg" alt="Google Ads"></span>
+            <span><strong>Google Ads / PMax</strong><span class="tool-purpose">AI-optimised paid acquisition</span></span>
+          </div>
+          <div class="tool">
+            <span class="tool-icon"><img src="resume_logos/meta.svg" alt="Meta"></span>
+            <span><strong>Meta Advantage+</strong><span class="tool-purpose">Automated audience &amp; creative</span></span>
+          </div>
+          <div class="tool">
+            <span class="tool-icon"><img src="resume_logos/hubspot.svg" alt="HubSpot"></span>
+            <span><strong>HubSpot AI</strong><span class="tool-purpose">CRM, lifecycle &amp; email automation</span></span>
+          </div>
+          <div class="tool">
+            <span class="tool-icon"><img src="resume_logos/canva.svg" alt="Canva"></span>
+            <span><strong>Canva Magic Studio</strong><span class="tool-purpose">On-brand creative at scale</span></span>
+          </div>
+          <div class="tool">
+            <span class="tool-icon"><img src="resume_logos/semrush.svg" alt="SEMrush"></span>
+            <span><strong>SEMrush</strong><span class="tool-purpose">SEO &amp; keyword intelligence</span></span>
+          </div>
+          <div class="tool">
+            <span class="tool-icon"><img src="resume_logos/notion.svg" alt="Notion"></span>
+            <span><strong>Notion AI</strong><span class="tool-purpose">Briefs, planning, knowledge base</span></span>
+          </div>
+          <div class="tool">
+            <span class="tool-icon"><img src="resume_logos/zapier.svg" alt="Zapier"></span>
+            <span><strong>Zapier</strong><span class="tool-purpose">Low-code workflow automation</span></span>
           </div>
         </div>
       </div>
-    `).join('');
+    </section>
 
-    // Fire view_item_list on page load
-    pushDataLayer('view_item_list', {
-      item_list_id: "featured_products",
-      item_list_name: "Featured Products",
-      items: PRODUCTS.map((p, i) => ({
-        item_id: p.item_id,
-        item_name: p.item_name,
-        item_brand: p.item_brand,
-        item_category: p.item_category,
-        price: p.price,
-        currency: p.currency,
-        index: i + 1
-      }))
-    }, 'default');
-  }
+    <!-- COMPETENCIES -->
+    <section>
+      <h2 class="section-title">Core Competencies</h2>
+      <div class="competencies">
+        <div class="skill">
+          <span class="skill-icon"><img src="resume_logos/claude.svg" alt="Claude"></span>
+          AI-Augmented Marketing &amp; Content Production
+        </div>
+        <div class="skill">
+          <span class="skill-icon"><img src="resume_logos/amazon.svg" alt="Amazon"></span>
+          Amazon Vendor &amp; Seller Central
+        </div>
+        <div class="skill">
+          <span class="skill-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#d97757" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg>
+          </span>
+          Performance Marketing — PPC, SEO &amp; PMax
+        </div>
+        <div class="skill">
+          <span class="skill-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#7c9cff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="4"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/><circle cx="17" cy="7" r="3"/><path d="M21 21v-2a3 3 0 0 0-2-2.83"/></svg>
+          </span>
+          Team Leadership &amp; OKR Frameworks
+        </div>
+        <div class="skill">
+          <span class="skill-logos">
+            <span class="skill-icon"><img src="resume_logos/amazon.svg" alt="Amazon"></span>
+            <span class="skill-icon"><img src="resume_logos/flipkart.svg" alt="Flipkart"></span>
+          </span>
+          Multi-Channel Marketplace Strategy
+        </div>
+        <div class="skill">
+          <span class="skill-logos">
+            <span class="skill-icon"><img src="resume_logos/googleads.svg" alt="Google Ads"></span>
+            <span class="skill-icon"><img src="resume_logos/meta.svg" alt="Meta"></span>
+          </span>
+          Google Ads &amp; Meta (FB/IG) Advertising
+        </div>
+        <div class="skill">
+          <span class="skill-icon"><img src="resume_logos/googleanalytics.svg" alt="GA4"></span>
+          GA4 Analytics, Attribution &amp; Reporting
+        </div>
+        <div class="skill">
+          <span class="skill-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#5cd6b9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h10M4 18h16"/><circle cx="18" cy="12" r="2" fill="#5cd6b9"/></svg>
+          </span>
+          AI-Assisted Catalogue &amp; Content Optimisation
+        </div>
+        <div class="skill">
+          <span class="skill-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#d97757" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2" fill="#d97757"/></svg>
+          </span>
+          Competitive Intelligence &amp; Dynamic Pricing
+        </div>
+        <div class="skill">
+          <span class="skill-icon"><img src="resume_logos/zapier.svg" alt="Zapier"></span>
+          Marketing Automation &amp; Workflow Orchestration
+        </div>
+      </div>
+    </section>
 
-  // ── GA4 DataLayer Push ────────────────────────────────────────
-  function pushDataLayer(eventName, ecommerceData, logType = 'default') {
-    // Clear previous ecommerce object (GA4 best practice)
-    window.dataLayer.push({ ecommerce: null });
+    <!-- EXPERIENCE -->
+    <section>
+      <h2 class="section-title">Professional Experience</h2>
+      <div class="timeline">
 
-    const payload = {
-      event: eventName,
-      ecommerce: ecommerceData
-    };
+        <article class="job">
+          <div class="job-header">
+            <div>
+              <span class="company-logo"><img src="resume_logos/viewsonic.svg" alt="ViewSonic"></span>
+              <div class="job-text">
+                <a class="job-company" href="https://www.viewsonic.com/" target="_blank" rel="noopener">ViewSonic Technologies ↗</a>
+                <span class="job-location">New Delhi, India</span>
+                <div class="job-role">Senior Ecommerce &amp; Digital Marketing Manager</div>
+                <div class="job-context">US-headquartered multinational electronics brand — reporting to India &amp; APAC leadership.</div>
+              </div>
+            </div>
+            <span class="job-dates">Jul 2020 – Present</span>
+          </div>
+          <ul class="job-bullets">
+            <li>Owned end-to-end marketplace operations on Amazon Vendor &amp; Seller Central — encompassing product listings, inventory planning, pricing strategy and order fulfilment.</li>
+            <li>Orchestrated multi-platform promotional campaigns across Amazon, Flipkart, Tata Cliq and Paytm, liaising with category managers to maximise brand visibility and sell-through rates.</li>
+            <li>Developed keyword-driven SEO frameworks and managed PPC campaigns, delivering sustained improvement in organic ranking and conversion performance.</li>
+            <li class="ai-bullet">Introduced <strong>generative-AI workflows (ChatGPT, Claude)</strong> into catalogue copywriting, A+ content and ad-creative iteration — compressing turnaround on listing updates and seasonal campaigns.</li>
+            <li class="ai-bullet">Built <strong>GA4-powered executive dashboards</strong> with AI-assisted insight summaries, surfacing actionable revenue patterns to senior leadership across India and APAC.</li>
+          </ul>
+        </article>
 
-    window.dataLayer.push(payload);
-    logEvent(eventName, ecommerceData, logType);
-  }
+        <article class="job">
+          <div class="job-header">
+            <div>
+              <span class="company-logo">
+                <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="40" height="40" rx="8" fill="#0aa37f"/>
+                  <text x="50%" y="55%" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="white">IE</text>
+                </svg>
+              </span>
+              <div class="job-text">
+                <span class="job-company">IndEasy Trade</span>
+                <span class="job-location">Gurgaon, India</span>
+                <div class="job-role">Lead Ecommerce &amp; Marketing Manager</div>
+              </div>
+            </div>
+            <span class="job-dates">Aug 2019 – Mar 2020</span>
+          </div>
+          <ul class="job-bullets">
+            <li>Sole marketing lead — launched company website, built Amazon &amp; Flipkart catalogues from scratch, and implemented competitive pricing models and multi-platform paid media strategies.</li>
+          </ul>
+        </article>
 
-  // ── GA4 Events ────────────────────────────────────────────────
+        <article class="job">
+          <div class="job-header">
+            <div>
+              <span class="company-logo"><img src="resume_logos/benq.jpg" alt="BenQ"></span>
+              <div class="job-text">
+                <a class="job-company" href="https://www.benq.com/en-in/index.html" target="_blank" rel="noopener">BenQ India ↗</a>
+                <span class="job-location">Gurgaon, India</span>
+                <div class="job-role">Assistant Marketing Manager – Ecommerce</div>
+                <div class="job-context">Taiwan-based global electronics brand.</div>
+              </div>
+            </div>
+            <span class="job-dates">Oct 2018 – Jul 2019</span>
+          </div>
+          <ul class="job-bullets">
+            <li>Optimised product catalogues across all ecommerce portals; managed third-party seller relationships and coordinated promotional campaigns with marketplace category managers.</li>
+          </ul>
+        </article>
 
-  // 1. view_item — fires when user clicks on a product card
-  function trackViewItem(itemId) {
-    const p = PRODUCTS.find(x => x.item_id === itemId);
-    if (!p) return;
-    pushDataLayer('view_item', {
-      currency: p.currency,
-      value: p.price,
-      items: [{
-        item_id: p.item_id,
-        item_name: p.item_name,
-        item_brand: p.item_brand,
-        item_category: p.item_category,
-        price: p.price,
-        quantity: 1
-      }]
-    });
-  }
+        <article class="job">
+          <div class="job-header">
+            <div>
+              <span class="company-logo"><img src="resume_logos/glen.jpg" alt="Glen India"></span>
+              <div class="job-text">
+                <a class="job-company" href="https://www.glenindia.com/" target="_blank" rel="noopener">Glen India Pvt Ltd ↗</a>
+                <span class="job-location">Faridabad, India</span>
+                <div class="job-role">Ecommerce Manager → Senior Strategist, Brand &amp; Ecommerce</div>
+              </div>
+            </div>
+            <span class="job-dates">Nov 2014 – Sep 2018</span>
+          </div>
+          <ul class="job-bullets">
+            <li>Spearheaded <strong>10x revenue scale-up</strong> (£15K → £150K equivalent) by architecting a multi-platform strategy across Amazon, Flipkart, Snapdeal and Paytm.</li>
+            <li>Led and developed a team of 8, introducing OKR frameworks that drove measurable productivity and revenue gains.</li>
+            <li>Grew online customer base by <strong>50%</strong> through integrated SEO, performance marketing and a full catalogue redesign initiative.</li>
+          </ul>
+        </article>
 
-  // 2. add_to_cart — fires when Add to Cart is clicked
-  function addToCart(itemId) {
-    const p = PRODUCTS.find(x => x.item_id === itemId);
-    if (!p) return;
+      </div>
+    </section>
 
-    const existing = cart.find(c => c.item_id === itemId);
-    if (existing) {
-      existing.quantity++;
-    } else {
-      cart.push({ ...p, quantity: 1 });
-    }
-
-    updateCartUI();
-
-    // ✅ GA4 add_to_cart
-    pushDataLayer('add_to_cart', {
-      currency: p.currency,
-      value: p.price,
-      items: [{
-        item_id: p.item_id,
-        item_name: p.item_name,
-        item_brand: p.item_brand,
-        item_category: p.item_category,
-        price: p.price,
-        quantity: 1
-      }]
-    }, 'highlight');
-
-    // Button feedback
-    const btn = document.getElementById(`btn-${itemId}`);
-    if (btn) {
-      btn.textContent = '✓ Added!';
-      btn.classList.add('added');
-      setTimeout(() => {
-        btn.textContent = 'Add to Cart';
-        btn.classList.remove('added');
-      }, 1500);
-    }
-  }
-
-  // 3. remove_from_cart
-  function removeFromCart(itemId) {
-    const p = cart.find(c => c.item_id === itemId);
-    if (!p) return;
-
-    pushDataLayer('remove_from_cart', {
-      currency: p.currency,
-      value: p.price * p.quantity,
-      items: [{
-        item_id: p.item_id,
-        item_name: p.item_name,
-        item_brand: p.item_brand,
-        item_category: p.item_category,
-        price: p.price,
-        quantity: p.quantity
-      }]
-    });
-
-    cart = cart.filter(c => c.item_id !== itemId);
-    updateCartUI();
-  }
-
-  // 4. view_cart — fires when cart sidebar opens
-  function openCart() {
-    document.getElementById('cart-overlay').classList.add('open');
-    document.getElementById('cart-sidebar').classList.add('open');
-
-    if (cart.length > 0) {
-      const total = cart.reduce((s, i) => s + i.price * i.quantity, 0);
-      pushDataLayer('view_cart', {
-        currency: "USD",
-        value: total,
-        items: cart.map(c => ({
-          item_id: c.item_id,
-          item_name: c.item_name,
-          item_brand: c.item_brand,
-          item_category: c.item_category,
-          price: c.price,
-          quantity: c.quantity
-        }))
-      }, 'highlight');
-    }
-  }
-
-  function closeCart() {
-    document.getElementById('cart-overlay').classList.remove('open');
-    document.getElementById('cart-sidebar').classList.remove('open');
-  }
-
-  // 5. begin_checkout — fires on Proceed to Checkout
-  function beginCheckout() {
-    if (cart.length === 0) {
-      showToast('Your cart is empty!');
-      return;
-    }
-    const total = cart.reduce((s, i) => s + i.price * i.quantity, 0);
-    pushDataLayer('begin_checkout', {
-      currency: "USD",
-      value: total,
-      coupon: "",
-      items: cart.map(c => ({
-        item_id: c.item_id,
-        item_name: c.item_name,
-        item_brand: c.item_brand,
-        item_category: c.item_category,
-        price: c.price,
-        quantity: c.quantity
-      }))
-    }, 'highlight');
-
-    // Simulate purchase after 1 second
-    setTimeout(() => simulatePurchase(total), 800);
-  }
-
-  // 6. purchase — simulated GA4 purchase event
-  function simulatePurchase(total) {
-    const txId = 'TXN-' + Date.now().toString(36).toUpperCase();
-    pushDataLayer('purchase', {
-      transaction_id: txId,
-      currency: "USD",
-      value: total,
-      tax: (total * 0.08).toFixed(2),
-      shipping: 0,
-      coupon: "",
-      items: cart.map(c => ({
-        item_id: c.item_id,
-        item_name: c.item_name,
-        item_brand: c.item_brand,
-        item_category: c.item_category,
-        price: c.price,
-        quantity: c.quantity
-      }))
-    }, 'purchase');
-
-    showToast(`✅ Purchase complete! Order ${txId}`);
-    cart = [];
-    closeCart();
-    updateCartUI();
-  }
-
-  // Nav click tracking
-  function trackNavClick(label) {
-    window.dataLayer.push({ ecommerce: null });
-    window.dataLayer.push({ event: 'navigation_click', nav_item: label });
-    logEvent('navigation_click', { nav_item: label });
-  }
-
-  // ── Cart UI Update ────────────────────────────────────────────
-  function updateCartUI() {
-    const totalQty = cart.reduce((s, i) => s + i.quantity, 0);
-    const totalVal = cart.reduce((s, i) => s + i.price * i.quantity, 0);
-
-    document.getElementById('cart-count').textContent = totalQty;
-    document.getElementById('cart-total').textContent = '$' + totalVal.toFixed(2);
-
-    const container = document.getElementById('cart-items');
-    if (cart.length === 0) {
-      container.innerHTML = `
-        <div class="cart-empty">
-          <div class="cart-empty-icon">🛍️</div>
-          <p>Your cart is empty</p>
-        </div>`;
-    } else {
-      container.innerHTML = cart.map(item => `
-        <div class="cart-item">
-          <div class="cart-item-emoji">${item.emoji}</div>
-          <div class="cart-item-info">
-            <div class="cart-item-name">${item.item_name}</div>
-            <div class="cart-item-price">$${item.price.toFixed(2)} each</div>
-            <div class="cart-item-actions">
-              <button class="qty-btn" onclick="changeQty('${item.item_id}', -1)">−</button>
-              <span class="qty-display">${item.quantity}</span>
-              <button class="qty-btn" onclick="changeQty('${item.item_id}', 1)">+</button>
-              <button class="remove-btn" onclick="removeFromCart('${item.item_id}')">Remove</button>
+    <!-- EDUCATION & DEVELOPMENT -->
+    <section>
+      <h2 class="section-title">Education &amp; Continuous AI Learning</h2>
+      <div class="edu-grid">
+        <div class="edu">
+          <div class="edu-header">
+            <span class="edu-logo"><img src="resume_logos/amity.png" alt="Amity University"></span>
+            <div>
+              <div class="edu-degree">MBA — Marketing &amp; Human Resources</div>
+              <div class="edu-school"><a href="https://www.amity.edu/noida/" target="_blank" rel="noopener">Amity University, Noida ↗</a></div>
             </div>
           </div>
+          <div class="edu-year">2014</div>
         </div>
-      `).join('');
-    }
-  }
+        <div class="edu">
+          <div class="edu-header">
+            <span class="edu-logo"><img src="resume_logos/du.svg" alt="University of Delhi"></span>
+            <div>
+              <div class="edu-degree">BA (Hons) Philosophy</div>
+              <div class="edu-school"><a href="https://gargi.du.ac.in/" target="_blank" rel="noopener">Gargi College</a>, <a href="https://www.du.ac.in/" target="_blank" rel="noopener">University of Delhi ↗</a></div>
+            </div>
+          </div>
+          <div class="edu-year">2012</div>
+        </div>
+      </div>
+      <div class="certs">
+        <strong>Active AI &amp; Digital Upskilling (2025–26):</strong>
+        <div style="margin-top:6px;">
+          <span class="cert-tag ai-cert">Claude / Claude Code — Agentic workflows</span>
+          <span class="cert-tag ai-cert">ChatGPT for Marketing &amp; Content</span>
+          <span class="cert-tag ai-cert">AI for Marketing — HubSpot Academy</span>
+          <span class="cert-tag">Google Digital Marketing &amp; E-commerce (Coursera)</span>
+          <span class="cert-tag">Google Analytics 4 (GA4)</span>
+          <span class="cert-tag">Meta Blueprint</span>
+          <span class="cert-tag">Performance Max &amp; Advantage+ campaigns</span>
+        </div>
+      </div>
+    </section>
 
-  function changeQty(itemId, delta) {
-    const item = cart.find(c => c.item_id === itemId);
-    if (!item) return;
-    item.quantity += delta;
-    if (item.quantity <= 0) {
-      removeFromCart(itemId);
-      return;
-    }
-    updateCartUI();
-  }
+    <!-- ADDITIONAL -->
+    <section>
+      <h2 class="section-title">Additional Information</h2>
+      <p class="profile-text">
+        <strong>Right to Work:</strong> British Passport Holder — no visa or sponsorship required, available immediately. &nbsp;·&nbsp;
+        <strong>Languages:</strong> English (Fluent), Hindi (Native). &nbsp;·&nbsp;
+        <strong>References:</strong> Available upon request.
+      </p>
+    </section>
 
-  // ── Toast ─────────────────────────────────────────────────────
-  function showToast(msg) {
-    const t = document.getElementById('toast');
-    t.textContent = msg;
-    t.classList.add('show');
-    setTimeout(() => t.classList.remove('show'), 3500);
-  }
-
-  // ── Event Log ─────────────────────────────────────────────────
-  function logEvent(eventName, data, type = 'default') {
-    eventCount++;
-    document.getElementById('event-count').textContent = eventCount + ' event' + (eventCount !== 1 ? 's' : '');
-
-    const log = document.getElementById('event-log-body');
-    const time = new Date().toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' });
-
-    // Compact data summary
-    let summary = '';
-    if (data.items) {
-      const names = data.items.map(i => i.item_name).join(', ');
-      summary = `items: [${names}]`;
-      if (data.value) summary += ` | value: $${parseFloat(data.value).toFixed(2)}`;
-      if (data.transaction_id) summary += ` | txn: ${data.transaction_id}`;
-    } else {
-      summary = JSON.stringify(data);
-    }
-
-    const entry = document.createElement('div');
-    entry.className = `log-entry ${type}`;
-    entry.innerHTML = `
-      <span class="log-time">${time}</span>
-      <span class="log-event">${eventName}</span>
-      <span class="log-data">${summary}</span>
-    `;
-
-    // Remove placeholder text
-    const placeholder = log.querySelector('div[style]');
-    if (placeholder) placeholder.remove();
-
-    log.prepend(entry);
-
-    // Keep log scrolled to top
-    log.scrollTop = 0;
-  }
-
-  function clearLog() {
-    const log = document.getElementById('event-log-body');
-    log.innerHTML = `<div style="color:#4b5563; padding:8px 0; font-family:'DM Sans',sans-serif; font-size:12px;">Log cleared — keep interacting to see new events...</div>`;
-    eventCount = 0;
-    document.getElementById('event-count').textContent = '0 events';
-  }
-
-  function toggleLog() {
-    const body = document.getElementById('event-log-body');
-    const icon = document.getElementById('toggle-icon');
-    logExpanded = !logExpanded;
-    body.classList.toggle('collapsed', !logExpanded);
-    icon.textContent = logExpanded ? '▲' : '▼';
-  }
-
-  // ── Init ──────────────────────────────────────────────────────
-  renderProducts();
-</script>
-
+    <footer>
+      <div class="actions">
+        <button class="btn" onclick="window.print()">🖨 Print / Save as PDF</button>
+        <a class="btn secondary" href="mailto:poonamprasad03@gmail.com">✉ Get in touch</a>
+        <a class="btn secondary" href="Poonam_Prasad_Resume.html">View classic version</a>
+      </div>
+      AI-forward edition · built to highlight ecommerce + applied AI fluency
+    </footer>
+  </div>
 </body>
 </html>
