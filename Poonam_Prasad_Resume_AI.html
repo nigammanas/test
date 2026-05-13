@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Poonam Prasad — AI-Powered Digital Marketing &amp; Ecommerce Leader</title>
+<style>
+  :root {
+    --bg: #0b0d12;
+    --bg-elev: #141822;
+    --bg-elev-2: #1c2130;
+    --text: #ecf0f7;
+    --text-dim: #9aa3b2;
+    --accent: #d97757;        /* Claude/Anthropic warm accent */
+    --accent-2: #7c9cff;      /* secondary highlight */
+    --accent-3: #5cd6b9;
+    --border: #232838;
+    --shadow: 0 10px 40px rgba(0,0,0,0.4);
+    --radius: 14px;
+  }
+  @media (prefers-color-scheme: light) {
+    :root {
+      --bg: #faf7f4;
+      --bg-elev: #ffffff;
+      --bg-elev-2: #f1ede7;
+      --text: #1a1f2c;
+      --text-dim: #5a6478;
+      --accent: #c45a36;
+      --accent-2: #3a5bd9;
+      --accent-3: #0aa37f;
+      --border: #e3ddd3;
+      --shadow: 0 8px 30px rgba(60,40,20,0.08);
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container { max-width: 1080px; margin: 0 auto; padding: 32px 24px 80px; }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, var(--bg-elev) 0%, var(--bg-elev-2) 100%);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 48px 40px;
+    box-shadow: var(--shadow);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: -120px; right: -80px;
+    width: 360px; height: 360px;
+    background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+    opacity: 0.22;
+    pointer-events: none;
+  }
+  .ai-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(90deg, rgba(217,119,87,0.15), rgba(124,156,255,0.15));
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .ai-badge .dot {
+    width: 8px; height: 8px;
+    background: var(--accent);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--accent);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(1.2); }
+  }
+  .name {
+    font-size: clamp(32px, 5vw, 50px);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin: 0 0 8px;
+    background: linear-gradient(90deg, var(--text) 0%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .title {
+    font-size: clamp(16px, 2vw, 21px);
+    color: var(--text-dim);
+    margin: 0 0 22px;
+    font-weight: 500;
+  }
+  .meta { display: flex; flex-wrap: wrap; gap: 10px 20px; font-size: 14px; color: var(--text-dim); }
+  .meta a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
+  .meta a:hover { color: var(--accent-2); }
+  .meta .pill {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 4px 12px; background: var(--bg-elev-2);
+    border: 1px solid var(--border); border-radius: 999px;
+    font-size: 13px;
+  }
+  .badge-uk {
+    background: linear-gradient(90deg, var(--accent-3) 0%, var(--accent-2) 100%);
+    color: white; padding: 4px 12px; border-radius: 999px;
+    font-size: 12px; font-weight: 600; border: 0;
+  }
+
+  /* SECTIONS */
+  section { margin-top: 48px; }
+  .section-title {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--accent);
+    font-weight: 700;
+    margin: 0 0 20px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .section-title::after {
+    content: ""; flex: 1; height: 1px; background: var(--border);
+  }
+  .profile-text {
+    font-size: 16px;
+    color: var(--text);
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px 28px;
+    box-shadow: var(--shadow);
+  }
+  .profile-text strong { color: var(--accent); }
+
+  /* HIGHLIGHTS */
+  .highlights {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+  }
+  .stat {
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    transition: border-color 0.25s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .stat:hover { border-color: var(--accent); }
+  .stat::before {
+    content: ""; position: absolute; left: 0; top: 0; bottom: 0;
+    width: 3px; background: var(--accent);
+    opacity: 0.4;
+  }
+  .stat-num {
+    font-size: 36px; font-weight: 800;
+    color: var(--accent); line-height: 1;
+    margin-bottom: 6px;
+  }
+  .stat-label { font-size: 14px; color: var(--text-dim); font-weight: 500; }
+
+  /* AI TOOLBOX */
+  .toolbox {
+    background: linear-gradient(135deg, rgba(217,119,87,0.08), rgba(124,156,255,0.08));
+    border: 1px solid var(--accent);
+    border-radius: var(--radius);
+    padding: 24px 28px;
+    margin-top: 12px;
+  }
+  .toolbox-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 12px;
+    margin-top: 12px;
+  }
+  .tool {
+    display: flex; align-items: center; gap: 10px;
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-size: 13px;
+    font-weight: 500;
+    transition: border-color 0.2s, transform 0.15s;
+  }
+  .tool:hover { border-color: var(--accent); }
+  .tool-icon {
+    width: 22px; height: 22px;
+    flex-shrink: 0;
+    display: inline-flex; align-items: center; justify-content: center;
+    background: white;
+    border-radius: 5px;
+    padding: 3px;
+  }
+  .tool-icon img { width: 100%; height: 100%; object-fit: contain; }
+  .tool-purpose { color: var(--text-dim); font-size: 11px; display: block; }
+
+  /* COMPETENCIES */
+  .competencies {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 12px;
+  }
+  .skill {
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 18px;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .skill:hover { background: var(--bg-elev-2); border-color: var(--accent); }
+  .skill-icon {
+    width: 28px; height: 28px;
+    flex-shrink: 0;
+    display: inline-flex; align-items: center; justify-content: center;
+    background: var(--bg-elev-2);
+    border-radius: 6px;
+    padding: 4px;
+  }
+  .skill-icon img, .skill-icon svg {
+    width: 100%; height: 100%; object-fit: contain;
+  }
+  @media (prefers-color-scheme: dark) {
+    .skill-icon img[src$=".svg"], .tool-icon img[src$=".svg"] { filter: invert(0.9); }
+  }
+  .skill-logos { display: flex; gap: 4px; }
+  .skill-logos .skill-icon { width: 24px; height: 24px; }
+
+  /* TIMELINE */
+  .timeline { position: relative; padding-left: 28px; }
+  .timeline::before {
+    content: ""; position: absolute;
+    left: 8px; top: 12px; bottom: 12px;
+    width: 2px;
+    background: linear-gradient(180deg, var(--accent), var(--accent-2));
+    opacity: 0.4;
+  }
+  .job {
+    position: relative;
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    margin-bottom: 16px;
+    transition: border-color 0.25s;
+  }
+  .job::before {
+    content: ""; position: absolute;
+    left: -27px; top: 28px;
+    width: 14px; height: 14px;
+    background: var(--accent);
+    border: 3px solid var(--bg);
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px var(--accent);
+  }
+  .job:hover { border-color: var(--accent); }
+  .job-header {
+    display: flex; flex-wrap: wrap;
+    align-items: baseline; justify-content: space-between;
+    gap: 8px;
+  }
+  .job-header > div { display: flex; align-items: flex-start; gap: 0; }
+  .job-text { display: flex; flex-direction: column; }
+  .company-logo {
+    min-width: 44px; height: 44px;
+    flex-shrink: 0;
+    display: inline-flex; align-items: center; justify-content: center;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 6px 10px;
+    margin-right: 14px;
+    vertical-align: middle;
+  }
+  .company-logo img { max-width: 100px; max-height: 100%; width: auto; height: auto; object-fit: contain; }
+  .job-company {
+    font-size: 18px; font-weight: 700; color: var(--text);
+    text-decoration: none;
+    border-bottom: 1px dashed transparent;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  a.job-company:hover { color: var(--accent); border-bottom-color: var(--accent); }
+  .job-location { font-size: 13px; color: var(--text-dim); display: block; margin-top: 2px; }
+  .job-dates {
+    font-size: 13px; color: var(--accent); font-weight: 600;
+    background: var(--bg-elev-2); padding: 3px 10px; border-radius: 999px;
+    white-space: nowrap;
+  }
+  .job-role { font-size: 15px; color: var(--accent-3); font-weight: 600; margin-top: 4px; }
+  .job-context { font-size: 13px; color: var(--text-dim); font-style: italic; margin-top: 4px; }
+  .job-bullets { margin-top: 14px; padding-left: 0; list-style: none; }
+  .job-bullets li {
+    position: relative; padding-left: 22px; margin-bottom: 8px;
+    font-size: 14.5px; color: var(--text);
+  }
+  .job-bullets li::before {
+    content: "→"; position: absolute; left: 0;
+    color: var(--accent); font-weight: bold;
+  }
+  .job-bullets li.ai-bullet::before { content: "✦"; color: var(--accent); }
+  .job-bullets strong { color: var(--accent); }
+
+  /* EDUCATION */
+  .edu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 14px;
+  }
+  .edu {
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 18px 20px;
+  }
+  .edu:hover { border-color: var(--accent); }
+  .edu-header { display: flex; align-items: center; }
+  .edu-logo {
+    min-width: 40px; height: 40px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 5px 8px;
+    display: inline-flex; align-items: center; justify-content: center;
+    margin-right: 12px;
+    flex-shrink: 0;
+  }
+  .edu-logo img { max-width: 90px; max-height: 100%; width: auto; height: auto; object-fit: contain; }
+  .edu-degree { font-weight: 700; font-size: 15px; margin-bottom: 4px; }
+  .edu-school { color: var(--text-dim); font-size: 14px; }
+  .edu-school a {
+    color: inherit; text-decoration: none;
+    border-bottom: 1px dashed var(--border);
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .edu-school a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+  .edu-year { color: var(--accent); font-size: 13px; font-weight: 600; margin-top: 6px; }
+
+  .certs {
+    background: var(--bg-elev);
+    border: 1px dashed var(--accent);
+    border-radius: var(--radius);
+    padding: 18px 22px;
+    margin-top: 14px;
+    font-size: 14px;
+    color: var(--text-dim);
+  }
+  .certs strong { color: var(--accent); }
+  .cert-tag {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: var(--bg-elev-2);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 4px 12px;
+    margin: 6px 4px 0 0;
+    font-size: 12px;
+    color: var(--text);
+  }
+  .cert-tag.ai-cert { border-color: var(--accent); }
+  .cert-tag.ai-cert::before {
+    content: "✦"; color: var(--accent); font-weight: bold;
+  }
+
+  footer {
+    margin-top: 56px; padding-top: 24px;
+    border-top: 1px solid var(--border);
+    text-align: center; color: var(--text-dim); font-size: 13px;
+  }
+  .actions {
+    display: flex; gap: 10px;
+    justify-content: center; flex-wrap: wrap;
+    margin-bottom: 14px;
+  }
+  .btn {
+    background: var(--accent); color: white;
+    border: 0; padding: 10px 20px;
+    border-radius: 10px; font-size: 14px; font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.15s, box-shadow 0.2s;
+    text-decoration: none;
+    display: inline-flex; align-items: center; gap: 6px;
+  }
+  .btn:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(217, 119, 87, 0.35); }
+  .btn.secondary {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text);
+  }
+  .btn.secondary:hover { border-color: var(--accent); color: var(--accent); }
+
+  @media print {
+    body { background: white; color: black; }
+    .container { max-width: 100%; padding: 0; }
+    .hero, .profile-text, .stat, .skill, .job, .edu, .certs, .toolbox {
+      background: white; border: 1px solid #ddd; box-shadow: none; break-inside: avoid;
+    }
+    .name { color: black !important; -webkit-text-fill-color: black; }
+    .actions, footer { display: none; }
+    section { margin-top: 24px; }
+  }
+  @media (max-width: 600px) {
+    .hero { padding: 32px 24px; }
+    .container { padding: 16px 14px 60px; }
+    .timeline { padding-left: 22px; }
+    .job::before { left: -22px; }
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- HERO -->
+    <header class="hero">
+      <div class="ai-badge"><span class="dot"></span>AI-Forward · Available Immediately · London</div>
+      <h1 class="name">Poonam Prasad</h1>
+      <p class="title">AI-Powered Digital Marketing &amp; Ecommerce Leader<br><span style="font-size:0.85em;color:var(--text-dim);">Marketplace Strategy · Generative AI · Performance Marketing</span></p>
+      <div class="meta">
+        <a href="mailto:poonamprasad03@gmail.com">✉ poonamprasad03@gmail.com</a>
+        <a href="tel:+919953638641">☏ +91 99536 38641</a>
+        <span class="pill">📍 London, UK</span>
+        <span class="badge-uk">🇬🇧 British Passport · No Sponsorship Required</span>
+      </div>
+    </header>
+
+    <!-- PROFILE -->
+    <section>
+      <h2 class="section-title">Executive Profile</h2>
+      <p class="profile-text">
+        Senior Digital Commerce leader with <strong>12 years</strong> of marketplace and performance-marketing leadership for global electronics brands — now building at the intersection of <strong>ecommerce and applied AI</strong>. Track record of delivering measurable impact at scale: a <strong>10x revenue scale-up</strong>, <strong>50% customer-base expansion</strong>, and marketplace diversification from 3 to 8 platforms. Currently upskilling deeply across the modern AI marketing stack — <strong>Claude, ChatGPT, GA4, Meta Blueprint, HubSpot AI</strong> — to bring agentic workflows, AI-driven content production, and predictive analytics into ecommerce operations. Permanently based in London, eligible to work without sponsorship, and ready to help a UK or European business turn AI into measurable revenue.
+      </p>
+    </section>
+
+    <!-- HIGHLIGHTS -->
+    <section>
+      <h2 class="section-title">Career Highlights</h2>
+      <div class="highlights">
+        <div class="stat"><div class="stat-num">10x</div><div class="stat-label">Revenue Growth — scaled £15K → £150K across 8 platforms</div></div>
+        <div class="stat"><div class="stat-num">50%</div><div class="stat-label">Customer Base Expansion via SEO, paid media &amp; catalogue redesign</div></div>
+        <div class="stat"><div class="stat-num">8</div><div class="stat-label">Active Marketplace Portals — diversified from 3 to 8</div></div>
+        <div class="stat"><div class="stat-num">12+</div><div class="stat-label">Years leading ecommerce for global MNC brands</div></div>
+      </div>
+    </section>
+
+    <!-- AI TOOLBOX -->
+    <section>
+      <h2 class="section-title">AI &amp; Marketing Toolbox</h2>
+      <div class="toolbox">
+        <p style="margin:0 0 6px;color:var(--text-dim);font-size:14px;">Currently building hands-on fluency across the agentic and generative AI stack to accelerate ecommerce, content, and performance-marketing workflows.</p>
+        <div class="toolbox-grid">
+          <div class="tool">
+            <span class="tool-icon"><img src="resume_logos/claude.svg" alt="Claude"></span>
+            <span><strong>Claude / Claude Code</strong><span class="tool-purpose">Agentic content &amp; data workflows</span></span>
+          </div>
+          <div class="tool">
+            <span class="tool-icon"><img src="resume_logos/openai.svg" alt="ChatGPT"></span>
+            <span><strong>ChatGPT</strong><span class="tool-purpose">Catalogue copy, A/B variants, analysis</span></span>
+          </div>
+          <div class="tool">
+            <span class="tool-icon"><img src="resume_logos/perplexity.svg" alt="Perplexity"></span>
+            <span><strong>Perplexity</strong><span class="tool-purpose">Competitive &amp; market research</span></span>
+          </div>
+          <div class="tool">
+            <span class="tool-icon"><img src="resume_logos/googleanalytics.svg" alt="GA4"></span>
+            <span><strong>GA4</strong><span class="tool-purpose">Attribution &amp; conversion analysis</span></span>
+          </div>
+          <div class="tool">
+            <span class="tool-icon"><img src="resume_logos/googleads.svg" alt="Google Ads"></span>
+            <span><strong>Google Ads / PMax</strong><span class="tool-purpose">AI-optimised paid acquisition</span></span>
+          </div>
+          <div class="tool">
+            <span class="tool-icon"><img src="resume_logos/meta.svg" alt="Meta"></span>
+            <span><strong>Meta Advantage+</strong><span class="tool-purpose">Automated audience &amp; creative</span></span>
+          </div>
+          <div class="tool">
+            <span class="tool-icon"><img src="resume_logos/hubspot.svg" alt="HubSpot"></span>
+            <span><strong>HubSpot AI</strong><span class="tool-purpose">CRM, lifecycle &amp; email automation</span></span>
+          </div>
+          <div class="tool">
+            <span class="tool-icon"><img src="resume_logos/canva.svg" alt="Canva"></span>
+            <span><strong>Canva Magic Studio</strong><span class="tool-purpose">On-brand creative at scale</span></span>
+          </div>
+          <div class="tool">
+            <span class="tool-icon"><img src="resume_logos/semrush.svg" alt="SEMrush"></span>
+            <span><strong>SEMrush</strong><span class="tool-purpose">SEO &amp; keyword intelligence</span></span>
+          </div>
+          <div class="tool">
+            <span class="tool-icon"><img src="resume_logos/notion.svg" alt="Notion"></span>
+            <span><strong>Notion AI</strong><span class="tool-purpose">Briefs, planning, knowledge base</span></span>
+          </div>
+          <div class="tool">
+            <span class="tool-icon"><img src="resume_logos/zapier.svg" alt="Zapier"></span>
+            <span><strong>Zapier</strong><span class="tool-purpose">Low-code workflow automation</span></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPETENCIES -->
+    <section>
+      <h2 class="section-title">Core Competencies</h2>
+      <div class="competencies">
+        <div class="skill">
+          <span class="skill-icon"><img src="resume_logos/claude.svg" alt="Claude"></span>
+          AI-Augmented Marketing &amp; Content Production
+        </div>
+        <div class="skill">
+          <span class="skill-icon"><img src="resume_logos/amazon.svg" alt="Amazon"></span>
+          Amazon Vendor &amp; Seller Central
+        </div>
+        <div class="skill">
+          <span class="skill-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#d97757" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg>
+          </span>
+          Performance Marketing — PPC, SEO &amp; PMax
+        </div>
+        <div class="skill">
+          <span class="skill-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#7c9cff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="4"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/><circle cx="17" cy="7" r="3"/><path d="M21 21v-2a3 3 0 0 0-2-2.83"/></svg>
+          </span>
+          Team Leadership &amp; OKR Frameworks
+        </div>
+        <div class="skill">
+          <span class="skill-logos">
+            <span class="skill-icon"><img src="resume_logos/amazon.svg" alt="Amazon"></span>
+            <span class="skill-icon"><img src="resume_logos/flipkart.svg" alt="Flipkart"></span>
+          </span>
+          Multi-Channel Marketplace Strategy
+        </div>
+        <div class="skill">
+          <span class="skill-logos">
+            <span class="skill-icon"><img src="resume_logos/googleads.svg" alt="Google Ads"></span>
+            <span class="skill-icon"><img src="resume_logos/meta.svg" alt="Meta"></span>
+          </span>
+          Google Ads &amp; Meta (FB/IG) Advertising
+        </div>
+        <div class="skill">
+          <span class="skill-icon"><img src="resume_logos/googleanalytics.svg" alt="GA4"></span>
+          GA4 Analytics, Attribution &amp; Reporting
+        </div>
+        <div class="skill">
+          <span class="skill-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#5cd6b9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h10M4 18h16"/><circle cx="18" cy="12" r="2" fill="#5cd6b9"/></svg>
+          </span>
+          AI-Assisted Catalogue &amp; Content Optimisation
+        </div>
+        <div class="skill">
+          <span class="skill-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#d97757" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2" fill="#d97757"/></svg>
+          </span>
+          Competitive Intelligence &amp; Dynamic Pricing
+        </div>
+        <div class="skill">
+          <span class="skill-icon"><img src="resume_logos/zapier.svg" alt="Zapier"></span>
+          Marketing Automation &amp; Workflow Orchestration
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section>
+      <h2 class="section-title">Professional Experience</h2>
+      <div class="timeline">
+
+        <article class="job">
+          <div class="job-header">
+            <div>
+              <span class="company-logo"><img src="resume_logos/viewsonic.svg" alt="ViewSonic"></span>
+              <div class="job-text">
+                <a class="job-company" href="https://www.viewsonic.com/" target="_blank" rel="noopener">ViewSonic Technologies ↗</a>
+                <span class="job-location">New Delhi, India</span>
+                <div class="job-role">Senior Ecommerce &amp; Digital Marketing Manager</div>
+                <div class="job-context">US-headquartered multinational electronics brand — reporting to India &amp; APAC leadership.</div>
+              </div>
+            </div>
+            <span class="job-dates">Jul 2020 – Present</span>
+          </div>
+          <ul class="job-bullets">
+            <li>Owned end-to-end marketplace operations on Amazon Vendor &amp; Seller Central — encompassing product listings, inventory planning, pricing strategy and order fulfilment.</li>
+            <li>Orchestrated multi-platform promotional campaigns across Amazon, Flipkart, Tata Cliq and Paytm, liaising with category managers to maximise brand visibility and sell-through rates.</li>
+            <li>Developed keyword-driven SEO frameworks and managed PPC campaigns, delivering sustained improvement in organic ranking and conversion performance.</li>
+            <li class="ai-bullet">Introduced <strong>generative-AI workflows (ChatGPT, Claude)</strong> into catalogue copywriting, A+ content and ad-creative iteration — compressing turnaround on listing updates and seasonal campaigns.</li>
+            <li class="ai-bullet">Built <strong>GA4-powered executive dashboards</strong> with AI-assisted insight summaries, surfacing actionable revenue patterns to senior leadership across India and APAC.</li>
+          </ul>
+        </article>
+
+        <article class="job">
+          <div class="job-header">
+            <div>
+              <span class="company-logo">
+                <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="40" height="40" rx="8" fill="#0aa37f"/>
+                  <text x="50%" y="55%" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="white">IE</text>
+                </svg>
+              </span>
+              <div class="job-text">
+                <span class="job-company">IndEasy Trade</span>
+                <span class="job-location">Gurgaon, India</span>
+                <div class="job-role">Lead Ecommerce &amp; Marketing Manager</div>
+              </div>
+            </div>
+            <span class="job-dates">Aug 2019 – Mar 2020</span>
+          </div>
+          <ul class="job-bullets">
+            <li>Sole marketing lead — launched company website, built Amazon &amp; Flipkart catalogues from scratch, and implemented competitive pricing models and multi-platform paid media strategies.</li>
+          </ul>
+        </article>
+
+        <article class="job">
+          <div class="job-header">
+            <div>
+              <span class="company-logo"><img src="resume_logos/benq.jpg" alt="BenQ"></span>
+              <div class="job-text">
+                <a class="job-company" href="https://www.benq.com/en-in/index.html" target="_blank" rel="noopener">BenQ India ↗</a>
+                <span class="job-location">Gurgaon, India</span>
+                <div class="job-role">Assistant Marketing Manager – Ecommerce</div>
+                <div class="job-context">Taiwan-based global electronics brand.</div>
+              </div>
+            </div>
+            <span class="job-dates">Oct 2018 – Jul 2019</span>
+          </div>
+          <ul class="job-bullets">
+            <li>Optimised product catalogues across all ecommerce portals; managed third-party seller relationships and coordinated promotional campaigns with marketplace category managers.</li>
+          </ul>
+        </article>
+
+        <article class="job">
+          <div class="job-header">
+            <div>
+              <span class="company-logo"><img src="resume_logos/glen.jpg" alt="Glen India"></span>
+              <div class="job-text">
+                <a class="job-company" href="https://www.glenindia.com/" target="_blank" rel="noopener">Glen India Pvt Ltd ↗</a>
+                <span class="job-location">Faridabad, India</span>
+                <div class="job-role">Ecommerce Manager → Senior Strategist, Brand &amp; Ecommerce</div>
+              </div>
+            </div>
+            <span class="job-dates">Nov 2014 – Sep 2018</span>
+          </div>
+          <ul class="job-bullets">
+            <li>Spearheaded <strong>10x revenue scale-up</strong> (£15K → £150K equivalent) by architecting a multi-platform strategy across Amazon, Flipkart, Snapdeal and Paytm.</li>
+            <li>Led and developed a team of 8, introducing OKR frameworks that drove measurable productivity and revenue gains.</li>
+            <li>Grew online customer base by <strong>50%</strong> through integrated SEO, performance marketing and a full catalogue redesign initiative.</li>
+          </ul>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- EDUCATION & DEVELOPMENT -->
+    <section>
+      <h2 class="section-title">Education &amp; Continuous AI Learning</h2>
+      <div class="edu-grid">
+        <div class="edu">
+          <div class="edu-header">
+            <span class="edu-logo"><img src="resume_logos/amity.png" alt="Amity University"></span>
+            <div>
+              <div class="edu-degree">MBA — Marketing &amp; Human Resources</div>
+              <div class="edu-school"><a href="https://www.amity.edu/noida/" target="_blank" rel="noopener">Amity University, Noida ↗</a></div>
+            </div>
+          </div>
+          <div class="edu-year">2014</div>
+        </div>
+        <div class="edu">
+          <div class="edu-header">
+            <span class="edu-logo"><img src="resume_logos/du.svg" alt="University of Delhi"></span>
+            <div>
+              <div class="edu-degree">BA (Hons) Philosophy</div>
+              <div class="edu-school"><a href="https://gargi.du.ac.in/" target="_blank" rel="noopener">Gargi College</a>, <a href="https://www.du.ac.in/" target="_blank" rel="noopener">University of Delhi ↗</a></div>
+            </div>
+          </div>
+          <div class="edu-year">2012</div>
+        </div>
+      </div>
+      <div class="certs">
+        <strong>Active AI &amp; Digital Upskilling (2025–26):</strong>
+        <div style="margin-top:6px;">
+          <span class="cert-tag ai-cert">Claude / Claude Code — Agentic workflows</span>
+          <span class="cert-tag ai-cert">ChatGPT for Marketing &amp; Content</span>
+          <span class="cert-tag ai-cert">AI for Marketing — HubSpot Academy</span>
+          <span class="cert-tag">Google Digital Marketing &amp; E-commerce (Coursera)</span>
+          <span class="cert-tag">Google Analytics 4 (GA4)</span>
+          <span class="cert-tag">Meta Blueprint</span>
+          <span class="cert-tag">Performance Max &amp; Advantage+ campaigns</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ADDITIONAL -->
+    <section>
+      <h2 class="section-title">Additional Information</h2>
+      <p class="profile-text">
+        <strong>Right to Work:</strong> British Passport Holder — no visa or sponsorship required, available immediately. &nbsp;·&nbsp;
+        <strong>Languages:</strong> English (Fluent), Hindi (Native). &nbsp;·&nbsp;
+        <strong>References:</strong> Available upon request.
+      </p>
+    </section>
+
+    <footer>
+      <div class="actions">
+        <button class="btn" onclick="window.print()">🖨 Print / Save as PDF</button>
+        <a class="btn secondary" href="mailto:poonamprasad03@gmail.com">✉ Get in touch</a>
+        <a class="btn secondary" href="Poonam_Prasad_Resume.html">View classic version</a>
+      </div>
+      AI-forward edition · built to highlight ecommerce + applied AI fluency
+    </footer>
+  </div>
+</body>
+</html>
